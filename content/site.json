@@ -1,0 +1,23 @@
+{
+  "title": "QOL Works",
+  "description": "QOL Works automates the manual work between the systems you already run — workflow automation, systems integration, reporting and application modernization across healthcare, warehousing, cybersecurity and B2B services.",
+  "primary_button": "Book a conversation",
+  "menu_solutions": {
+    "kicker": "Not sure which",
+    "title": "Pick the task that eats your team’s time.",
+    "text": "See what changes when it runs on its own, and where we would start.",
+    "link": "Try it"
+  },
+  "menu_products": {
+    "kicker": "Our products",
+    "title": "Four products, from robotics to events.",
+    "text": "Each has its own site. Or see all four side by side.",
+    "link": "See all products"
+  },
+  "menu_engagements": {
+    "kicker": "Not sure which",
+    "title": "From a smaller commitment to a deeper partnership.",
+    "text": "See how the six engagements fit together before you pick one.",
+    "link": "See all engagements"
+  }
+}

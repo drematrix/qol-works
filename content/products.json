@@ -1,0 +1,39 @@
+{
+  "eyebrow": "Our products",
+  "heading": "Explore our product line.",
+  "intro": "Discover how our products transform ideas into intelligent experiences.",
+  "items": [
+    {
+      "name": "Ogmen",
+      "category": "Pet companion robot",
+      "description": "A friendly robotic companion for pets, offering engagement, monitoring, and smart care powered by emotional intelligence.",
+      "link": "Visit ogmenrobotics.com",
+      "url": "https://www.ogmenrobotics.com/",
+      "menu_line": "A robotic companion that engages, monitors and cares for pets."
+    },
+    {
+      "name": "ForkEdge",
+      "category": "Digital platform for restaurants",
+      "description": "Discover curated dining experiences with intelligent recommendations tailored to your taste, mood, and location preferences.",
+      "link": "Visit forkedge.com",
+      "url": "https://forkedge.com/",
+      "menu_line": "Dining recommendations tailored to taste, mood and location."
+    },
+    {
+      "name": "Yavun",
+      "category": "360° campaign management",
+      "description": "Unify your marketing strategy with complete campaign oversight, real-time insights, automation, and performance-driven optimization tools.",
+      "link": "Visit yavun.com",
+      "url": "https://www.yavun.com/",
+      "menu_line": "Campaign oversight, real-time insights and automation in one place."
+    },
+    {
+      "name": "Viteplan",
+      "category": "Wedding invitation manager",
+      "description": "Plan every wedding detail seamlessly — invites, guests, RSVPs, and coordination — all managed beautifully in one smart platform.",
+      "link": "Visit viteplan.com",
+      "url": "https://viteplan.com/",
+      "menu_line": "Invites, guests, RSVPs and coordination in one platform."
+    }
+  ]
+}

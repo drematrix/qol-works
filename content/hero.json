@@ -1,0 +1,44 @@
+{
+  "eyebrow": "Automate + Integrate + Modernize",
+  "headline_line1": "Keep your systems.",
+  "headline_line2": "Lose the",
+  "headline_highlight": "busywork",
+  "headline_end": ".",
+  "subheading": "Most transformation projects replace software that was working fine. We automate the manual work between the systems you already run — without a rebuild.",
+  "secondary_button": "See what we’d automate",
+  "impact_label": "Real impact",
+  "impact_heading": "Work works better when the systems do.",
+  "impact_points": [
+    "Less manual re-entry.",
+    "One version of the number.",
+    "Reporting that arrives on its own.",
+    "Systems that keep up with you."
+  ],
+  "industries_label": "Built for what matters most",
+  "industries": [
+    {
+      "name": "Healthcare",
+      "text": "Connected records.\nFewer manual steps.",
+      "systems": "EHR · Scheduling · Patient portal",
+      "image_alt": "Clinicians around a tablet in a bright hospital"
+    },
+    {
+      "name": "Warehousing",
+      "text": "Smoother operations.\nOrders that move themselves.",
+      "systems": "WMS · ERP · Carrier portals",
+      "image_alt": "Two colleagues reviewing a tablet on a warehouse floor"
+    },
+    {
+      "name": "Cybersecurity",
+      "text": "Platforms modernized.\nReleases that keep shipping.",
+      "systems": "Product platform · CMS · Cloud",
+      "image_alt": "A team reviewing dashboards on large monitors"
+    },
+    {
+      "name": "B2B Services",
+      "text": "Systems that talk.\nTeams that stay aligned.",
+      "systems": "CRM · Finance · Service desk",
+      "image_alt": "A team walking through a workflow on a meeting-room screen"
+    }
+  ]
+}

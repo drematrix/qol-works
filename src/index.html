@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light">
 <meta name="theme-color" content="#FFFFFF">
-<meta name="description" content="QOL Works automates the manual work between the systems you already run — workflow automation, systems integration, reporting and application modernization across healthcare, warehousing, cybersecurity and B2B services.">
+<meta name="description" content="{{attr site.description}}">
 <link rel="icon" href="assets/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<title>QOL Works</title>
+<title>{{site.title}}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap">
@@ -1168,80 +1168,72 @@ html{scroll-behavior:smooth}
       <div class="navitem"><button class="navlink" id="engBtn" aria-expanded="false" aria-controls="engMenu" data-go="#engagements">Engagements
         <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m2.5 4.5 3.5 3.5 3.5-3.5"/></svg></button></div>
       <a href="#read">Try It</a>
-      <a class="btn btn--primary btn--sm nav__mobcta" href="#contact">Book a conversation</a>
+      <a class="btn btn--primary btn--sm nav__mobcta" href="#contact">{{site.primary_button}}</a>
     </nav>
     </div>
     <div class="nav__act">
-      <a class="btn btn--primary btn--sm" href="#contact">Book a conversation <span class="ar" aria-hidden="true">&#8594;</span></a>
+      <a class="btn btn--primary btn--sm" href="#contact">{{site.primary_button}} <span class="ar" aria-hidden="true">&#8594;</span></a>
     </div>
   </div>
   <div class="mega" id="solMenu" hidden>
     <div class="mega__in wrap wrap--wide">
-      <div class="mega__grid">
-        <div class="megacol"><h4>AI &amp; Automation</h4><ul><li>Workflow automation</li><li>Document processing &amp; OCR</li><li>Approval and exception workflows</li><li>AI agents and assistants</li><li>LLM application development</li><li>Intelligent data extraction</li></ul></div>
-        <div class="megacol"><h4>Connected Systems</h4><ul><li>Systems integration</li><li>API design and development</li><li>ERP integration</li><li>CRM integration</li><li>WMS and warehouse systems</li><li>EHR and healthcare systems</li><li>Middleware and data sync</li><li>EDI</li></ul></div>
-        <div class="megacol"><h4>Data &amp; Reporting</h4><ul><li>Operational dashboards</li><li>Reporting automation</li><li>Data pipelines</li><li>BI implementation</li><li>Data migration</li></ul></div>
-        <div class="megacol"><h4>Modernize &amp; Build</h4><ul><li>Legacy application modernization</li><li>Cloud migration</li><li>Custom web applications</li><li>Mobile applications</li><li>Customer and partner portals</li><li>QA and test automation</li><li>Application maintenance</li><li>Team augmentation</li></ul></div>
+      <div class="mega__grid">{{#each what.groups}}
+        <div class="megacol"><h4>{{title}}</h4><ul>{{#each items}}<li>{{.}}</li>{{/each}}</ul></div>{{/each}}
       </div>
       <aside class="mega__cta">
-        <span>Not sure which</span>
-        <b>Pick the task that eats your team&rsquo;s time.</b>
-        <p>See what changes when it runs on its own, and where we would start.</p>
-        <a href="#read">Try it <span aria-hidden="true">&#8594;</span></a>
+        <span>{{site.menu_solutions.kicker}}</span>
+        <b>{{site.menu_solutions.title}}</b>
+        <p>{{site.menu_solutions.text}}</p>
+        <a href="#read">{{site.menu_solutions.link}} <span aria-hidden="true">&#8594;</span></a>
       </aside>
     </div>
   </div>
   <div class="mega" id="prodMenu" hidden>
     <div class="mega__in wrap wrap--wide">
       <div class="mega__prods">
-        <a class="megaprod mp--b" href="https://www.ogmenrobotics.com/" target="_blank" rel="noopener">
+        <a class="megaprod mp--b" href="{{attr products.items.0.url}}" target="_blank" rel="noopener">
           <span class="megaprod__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="6" width="14" height="10" rx="4.5"/><path d="M12 6V3.5"/><circle cx="12" cy="2.8" r=".6"/><path d="M9.5 11h0M14.5 11h0" stroke-width="2.4"/><path d="M8 16v2.5h8V16"/></svg></span>
-          <span class="megaprod__cat">Pet companion robot</span>
-          <b>Ogmen <svg class="ext" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></b>
-          <span class="megaprod__line">A robotic companion that engages, monitors and cares for pets.</span>
+          <span class="megaprod__cat">{{products.items.0.category}}</span>
+          <b>{{products.items.0.name}} <svg class="ext" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></b>
+          <span class="megaprod__line">{{products.items.0.menu_line}}</span>
         </a>
-        <a class="megaprod mp--c" href="https://forkedge.com/" target="_blank" rel="noopener">
+        <a class="megaprod mp--c" href="{{attr products.items.1.url}}" target="_blank" rel="noopener">
           <span class="megaprod__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3v5a2 2 0 0 0 4 0V3M9 10v11M17 3c-2 2.5-2 7 0 9v9"/></svg></span>
-          <span class="megaprod__cat">Digital platform for restaurants</span>
-          <b>ForkEdge <svg class="ext" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></b>
-          <span class="megaprod__line">Dining recommendations tailored to taste, mood and location.</span>
+          <span class="megaprod__cat">{{products.items.1.category}}</span>
+          <b>{{products.items.1.name}} <svg class="ext" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></b>
+          <span class="megaprod__line">{{products.items.1.menu_line}}</span>
         </a>
-        <a class="megaprod mp--s" href="https://www.yavun.com/" target="_blank" rel="noopener">
+        <a class="megaprod mp--s" href="{{attr products.items.2.url}}" target="_blank" rel="noopener">
           <span class="megaprod__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20V4M4 20h16"/><path d="M8 16v-4M12 16V9M16 16v-6"/><path d="m7 9 4-3 3 2 5-4"/></svg></span>
-          <span class="megaprod__cat">360&deg; campaign management</span>
-          <b>Yavun <svg class="ext" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></b>
-          <span class="megaprod__line">Campaign oversight, real-time insights and automation in one place.</span>
+          <span class="megaprod__cat">{{products.items.2.category}}</span>
+          <b>{{products.items.2.name}} <svg class="ext" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></b>
+          <span class="megaprod__line">{{products.items.2.menu_line}}</span>
         </a>
-        <a class="megaprod mp--w" href="https://viteplan.com/" target="_blank" rel="noopener">
+        <a class="megaprod mp--w" href="{{attr products.items.3.url}}" target="_blank" rel="noopener">
           <span class="megaprod__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="m3.5 7 8.5 6.5L20.5 7"/></svg></span>
-          <span class="megaprod__cat">Wedding invitation manager</span>
-          <b>Viteplan <svg class="ext" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></b>
-          <span class="megaprod__line">Invites, guests, RSVPs and coordination in one platform.</span>
+          <span class="megaprod__cat">{{products.items.3.category}}</span>
+          <b>{{products.items.3.name}} <svg class="ext" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></b>
+          <span class="megaprod__line">{{products.items.3.menu_line}}</span>
         </a>
       </div>
       <aside class="mega__cta">
-        <span>Our products</span>
-        <b>Four products, from robotics to events.</b>
-        <p>Each has its own site. Or see all four side by side.</p>
-        <a href="#products">See all products <span aria-hidden="true">&#8594;</span></a>
+        <span>{{site.menu_products.kicker}}</span>
+        <b>{{site.menu_products.title}}</b>
+        <p>{{site.menu_products.text}}</p>
+        <a href="#products">{{site.menu_products.link}} <span aria-hidden="true">&#8594;</span></a>
       </aside>
     </div>
   </div>
   <div class="mega" id="engMenu" hidden>
     <div class="mega__in wrap wrap--wide">
-      <div class="mega__engs">
-        <a class="megaeng" href="#contact" data-eng="Automation Opportunity Assessment"><i aria-hidden="true"></i><span class="megaeng__k">01 &middot; Assess</span><b>Automation Opportunity Assessment</b><span class="megaeng__q">Not sure where to start?</span></a>
-        <a class="megaeng" href="#contact" data-eng="Integration Sprint"><i aria-hidden="true"></i><span class="megaeng__k">02 &middot; Integrate</span><b>Integration Sprint</b><span class="megaeng__q">Our systems do not talk.</span></a>
-        <a class="megaeng" href="#contact" data-eng="Workflow Automation Pilot"><i aria-hidden="true"></i><span class="megaeng__k">03 &middot; Automate</span><b>Workflow Automation Pilot</b><span class="megaeng__q">We want to automate a process.</span></a>
-        <a class="megaeng" href="#contact" data-eng="Modernization Track"><i aria-hidden="true"></i><span class="megaeng__k">04 &middot; Modernize</span><b>Modernization Track</b><span class="megaeng__q">Our platform is aging.</span></a>
-        <a class="megaeng" href="#contact" data-eng="Practical AI Pilot"><i aria-hidden="true"></i><span class="megaeng__k">05 &middot; Apply AI</span><b>Practical AI Pilot</b><span class="megaeng__q">We want to test AI on a real problem.</span></a>
-        <a class="megaeng" href="#contact" data-eng="Embedded Engineering Team"><i aria-hidden="true"></i><span class="megaeng__k">06 &middot; Scale</span><b>Embedded Engineering Team</b><span class="megaeng__q">We need ongoing engineering support.</span></a>
+      <div class="mega__engs">{{#each engagements.items}}
+        <a class="megaeng" href="#contact" data-eng="{{attr name}}"><i aria-hidden="true"></i><span class="megaeng__k">{{@num}} &middot; {{step}}</span><b>{{name}}</b><span class="megaeng__q">{{question}}</span></a>{{/each}}
       </div>
       <aside class="mega__cta">
-        <span>Not sure which</span>
-        <b>From a smaller commitment to a deeper partnership.</b>
-        <p>See how the six engagements fit together before you pick one.</p>
-        <a href="#engagements">See all engagements <span aria-hidden="true">&#8594;</span></a>
+        <span>{{site.menu_engagements.kicker}}</span>
+        <b>{{site.menu_engagements.title}}</b>
+        <p>{{site.menu_engagements.text}}</p>
+        <a href="#engagements">{{site.menu_engagements.link}} <span aria-hidden="true">&#8594;</span></a>
       </aside>
     </div>
   </div>
@@ -1264,61 +1256,58 @@ html{scroll-behavior:smooth}
 
   <div class="wrap wrap--wide hero__top">
     <div class="hero__copy">
-      <p class="eyebrow eyebrow--plus">Automate &#43; Integrate &#43; Modernize</p>
-      <h1>Keep your systems.<br>Lose the <span class="mark">busywork<svg viewBox="0 0 320 20" preserveAspectRatio="none" aria-hidden="true"><path d="M4 13.5 C 66 4.5 154 2.5 222 5.5 C 262 7.2 292 10 316 15"/></svg></span>.</h1>
-      <p class="hero__sub">Most transformation projects replace software that was working fine. We automate the manual work between the systems you already run &mdash; without a rebuild.</p>
+      <p class="eyebrow eyebrow--plus">{{hero.eyebrow}}</p>
+      <h1>{{hero.headline_line1}}<br>{{hero.headline_line2}} <span class="mark">{{hero.headline_highlight}}<svg viewBox="0 0 320 20" preserveAspectRatio="none" aria-hidden="true"><path d="M4 13.5 C 66 4.5 154 2.5 222 5.5 C 262 7.2 292 10 316 15"/></svg></span>{{hero.headline_end}}</h1>
+      <p class="hero__sub">{{hero.subheading}}</p>
       <div class="hero__ctas">
-        <a class="btn btn--primary" href="#contact">Book a conversation <span class="ar" aria-hidden="true">&#8594;</span></a>
-        <a class="btn btn--ghost" href="#read">See what we&rsquo;d automate</a>
+        <a class="btn btn--primary" href="#contact">{{site.primary_button}} <span class="ar" aria-hidden="true">&#8594;</span></a>
+        <a class="btn btn--ghost" href="#read">{{hero.secondary_button}}</a>
       </div>
     </div>
 
     <aside class="hero__rail">
-      <span class="rail__k">Real impact</span>
-      <p class="rail__lead">Work works better when the systems do.</p>
+      <span class="rail__k">{{hero.impact_label}}</span>
+      <p class="rail__lead">{{hero.impact_heading}}</p>
       <span class="rail__rule" aria-hidden="true"></span>
-      <ul class="rail__list">
-        <li>Less manual re-entry.</li>
-        <li>One version of the number.</li>
-        <li>Reporting that arrives on its own.</li>
-        <li>Systems that keep up with you.</li>
+      <ul class="rail__list">{{#each hero.impact_points}}
+        <li>{{.}}</li>{{/each}}
       </ul>
     </aside>
   </div>
 
   <div class="wrap wrap--wide indtabs">
-    <span class="indtabs__k">Built for what matters most</span>
+    <span class="indtabs__k">{{hero.industries_label}}</span>
     <div class="indtabs__row" role="tablist" aria-label="Industries">
-        <button type="button" role="tab" data-ind="healthcare" aria-controls="card-healthcare" aria-selected="true">Healthcare</button>
-        <button type="button" role="tab" data-ind="warehousing" aria-controls="card-warehousing" aria-selected="false">Warehousing</button>
-        <button type="button" role="tab" data-ind="cyber" aria-controls="card-cyber" aria-selected="false">Cybersecurity</button>
-        <button type="button" role="tab" data-ind="b2b" aria-controls="card-b2b" aria-selected="false">B2B Services</button>
+        <button type="button" role="tab" data-ind="healthcare" aria-controls="card-healthcare" aria-selected="true">{{hero.industries.0.name}}</button>
+        <button type="button" role="tab" data-ind="warehousing" aria-controls="card-warehousing" aria-selected="false">{{hero.industries.1.name}}</button>
+        <button type="button" role="tab" data-ind="cyber" aria-controls="card-cyber" aria-selected="false">{{hero.industries.2.name}}</button>
+        <button type="button" role="tab" data-ind="b2b" aria-controls="card-b2b" aria-selected="false">{{hero.industries.3.name}}</button>
     </div>
   </div>
 
   <div class="indcards" id="indcards">
     <a class="indcard is-on" id="card-healthcare" data-ind="healthcare" href="#what">
-      <img src="assets/img/ind-healthcare.jpg" alt="Clinicians around a tablet in a bright hospital" width="900" height="675">
+      <img src="assets/img/ind-healthcare.jpg" alt="{{attr hero.industries.0.image_alt}}" width="900" height="675">
       <span class="indcard__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 6v12M6 12h12"/></svg></span>
-      <div class="indcard__body"><h3>Healthcare</h3><p>Connected records.<br>Fewer manual steps.</p><span class="indcard__sys">EHR &middot; Scheduling &middot; Patient portal</span></div>
+      <div class="indcard__body"><h3>{{hero.industries.0.name}}</h3><p>{{hero.industries.0.text}}</p><span class="indcard__sys">{{hero.industries.0.systems}}</span></div>
       <span class="indcard__go" aria-hidden="true">&#8594;</span>
     </a>
     <a class="indcard" id="card-warehousing" data-ind="warehousing" href="#what">
-      <img src="assets/img/ind-warehousing.jpg" alt="Two colleagues reviewing a tablet on a warehouse floor" width="900" height="675">
+      <img src="assets/img/ind-warehousing.jpg" alt="{{attr hero.industries.1.image_alt}}" width="900" height="675">
       <span class="indcard__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.8 21 7v10l-9 4.2L3 17V7z"/><path d="M3 7l9 4.2L21 7M12 11.2V21"/></svg></span>
-      <div class="indcard__body"><h3>Warehousing</h3><p>Smoother operations.<br>Orders that move themselves.</p><span class="indcard__sys">WMS &middot; ERP &middot; Carrier portals</span></div>
+      <div class="indcard__body"><h3>{{hero.industries.1.name}}</h3><p>{{hero.industries.1.text}}</p><span class="indcard__sys">{{hero.industries.1.systems}}</span></div>
       <span class="indcard__go" aria-hidden="true">&#8594;</span>
     </a>
     <a class="indcard" id="card-cyber" data-ind="cyber" href="#what">
-      <img src="assets/img/ind-technology.jpg" alt="A team reviewing dashboards on large monitors" width="900" height="675" loading="lazy">
+      <img src="assets/img/ind-technology.jpg" alt="{{attr hero.industries.2.image_alt}}" width="900" height="675" loading="lazy">
       <span class="indcard__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.6 20 6v6c0 4.6-3.3 8.2-8 9.4C7.3 20.2 4 16.6 4 12V6z"/></svg></span>
-      <div class="indcard__body"><h3>Cybersecurity</h3><p>Platforms modernized.<br>Releases that keep shipping.</p><span class="indcard__sys">Product platform &middot; CMS &middot; Cloud</span></div>
+      <div class="indcard__body"><h3>{{hero.industries.2.name}}</h3><p>{{hero.industries.2.text}}</p><span class="indcard__sys">{{hero.industries.2.systems}}</span></div>
       <span class="indcard__go" aria-hidden="true">&#8594;</span>
     </a>
     <a class="indcard" id="card-b2b" data-ind="b2b" href="#what">
-      <img src="assets/img/ind-b2b.jpg" alt="A team walking through a workflow on a meeting-room screen" width="900" height="675" loading="lazy">
+      <img src="assets/img/ind-b2b.jpg" alt="{{attr hero.industries.3.image_alt}}" width="900" height="675" loading="lazy">
       <span class="indcard__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V5.5L13 3v18M13 21h7V10h-7"/><path d="M7 8h3M7 12h3M7 16h3M16 13h1.5M16 17h1.5"/></svg></span>
-      <div class="indcard__body"><h3>B2B Services</h3><p>Systems that talk.<br>Teams that stay aligned.</p><span class="indcard__sys">CRM &middot; Finance &middot; Service desk</span></div>
+      <div class="indcard__body"><h3>{{hero.industries.3.name}}</h3><p>{{hero.industries.3.text}}</p><span class="indcard__sys">{{hero.industries.3.systems}}</span></div>
       <span class="indcard__go" aria-hidden="true">&#8594;</span>
     </a>
   </div>
@@ -1331,8 +1320,8 @@ html{scroll-behavior:smooth}
 <section class="trust" aria-label="Clients">
   <div class="wrap wrap--wide trust__in reveal">
     <div class="trust__say">
-      <span class="trust__k">Trusted by</span>
-      <p>Healthcare systems, security leaders and logistics operators.</p>
+      <span class="trust__k">{{trust.label}}</span>
+      <p>{{trust.heading}}</p>
     </div>
     <div class="marquee">
       <ul class="marquee__track"><li><img src="assets/img/logos/malwarebytes.png" alt="Malwarebytes" width="156" height="31" style="height:27px" loading="lazy"></li><li><img src="assets/img/logos/rsa.png" alt="RSA" width="78" height="31" style="height:38px" loading="lazy"></li><li><img src="assets/img/logos/xenith.png" alt="Xenith" width="129" height="24" style="height:26px" loading="lazy"></li><li><img src="assets/img/logos/ogmen.png" alt="Ogmen" width="183" height="44" style="height:30px" loading="lazy"></li><li><img src="assets/img/logos/zum.png" alt="Zūm" width="82" height="39" style="height:42px" loading="lazy"></li><li><img src="assets/img/logos/entegris.png" alt="Entegris" width="110" height="31" style="height:32px" loading="lazy"></li><li><img src="assets/img/logos/swampfox.png" alt="Swampfox" width="123" height="56" style="height:41px" loading="lazy"></li><li><img src="assets/img/logos/ascent.png" alt="Ascent Warehouse Logistics" width="135" height="45" style="height:35px" loading="lazy"></li><li><img src="assets/img/logos/bilh.png" alt="Beth Israel Lahey Health" width="109" height="54" style="height:43px" loading="lazy"></li><li><img src="assets/img/logos/dartmouth.png" alt="Dartmouth Health" width="180" height="56" style="height:34px" loading="lazy"></li><li aria-hidden="true"><img src="assets/img/logos/malwarebytes.png" alt="" width="156" height="31" style="height:27px" loading="lazy"></li><li aria-hidden="true"><img src="assets/img/logos/rsa.png" alt="" width="78" height="31" style="height:38px" loading="lazy"></li><li aria-hidden="true"><img src="assets/img/logos/xenith.png" alt="" width="129" height="24" style="height:26px" loading="lazy"></li><li aria-hidden="true"><img src="assets/img/logos/ogmen.png" alt="" width="183" height="44" style="height:30px" loading="lazy"></li><li aria-hidden="true"><img src="assets/img/logos/zum.png" alt="" width="82" height="39" style="height:42px" loading="lazy"></li><li aria-hidden="true"><img src="assets/img/logos/entegris.png" alt="" width="110" height="31" style="height:32px" loading="lazy"></li><li aria-hidden="true"><img src="assets/img/logos/swampfox.png" alt="" width="123" height="56" style="height:41px" loading="lazy"></li><li aria-hidden="true"><img src="assets/img/logos/ascent.png" alt="" width="135" height="45" style="height:35px" loading="lazy"></li><li aria-hidden="true"><img src="assets/img/logos/bilh.png" alt="" width="109" height="54" style="height:43px" loading="lazy"></li><li aria-hidden="true"><img src="assets/img/logos/dartmouth.png" alt="" width="180" height="56" style="height:34px" loading="lazy"></li></ul>
@@ -1346,19 +1335,19 @@ html{scroll-behavior:smooth}
   <div class="wrap">
     <div class="splithead reveal">
       <div class="splithead__l">
-        <p class="eyebrow">What we do</p>
-        <h2>Four ways we make work better.</h2>
+        <p class="eyebrow">{{what.eyebrow}}</p>
+        <h2>{{what.heading}}</h2>
         <span class="pchip">Draft &mdash; strike anything we cannot staff</span>
       </div>
-      <p class="splithead__note">Different problems, one approach: keep what works, connect what doesn&rsquo;t, and build only what is missing.</p>
+      <p class="splithead__note">{{what.intro}}</p>
     </div>
 
     <div class="wcards stagger">
 
       <article class="wcard wcard--a">
         <span class="wcard__n">01</span>
-        <h3>AI &amp;<br>Automation</h3>
-        <p>Turn repetitive, rules-heavy processes into connected workflows &mdash; and use AI where it solves a real problem, not because it is available.</p>
+        <h3>{{what.groups.0.card_title}}</h3>
+        <p>{{what.groups.0.card_text}}</p>
         <div class="viz" aria-hidden="true">
           <div class="win">
             <div class="win__bar"><i></i><i></i><i></i><b>QOL</b></div>
@@ -1376,16 +1365,16 @@ html{scroll-behavior:smooth}
           </div>
         </div>
         <div class="wcard__caps" aria-hidden="true">
-          <span class="wcard__caps-k">Includes</span>
-          <ul><li>Workflow automation</li><li>Document processing &amp; OCR</li><li>Approval and exception workflows</li><li>AI agents and assistants</li><li>LLM application development</li><li>Intelligent data extraction</li></ul>
+          <span class="wcard__caps-k">{{what.includes_label}}</span>
+          <ul>{{#each what.groups.0.items}}<li>{{.}}</li>{{/each}}</ul>
         </div>
         <span class="wcard__go" aria-hidden="true">&#8594;</span>
       </article>
 
       <article class="wcard wcard--b">
         <span class="wcard__n">02</span>
-        <h3>Connected<br>Systems</h3>
-        <p>Integrations and APIs that let your ERP, CRM, POS and warehouse platform work as one &mdash; without replacing any of them.</p>
+        <h3>{{what.groups.1.card_title}}</h3>
+        <p>{{what.groups.1.card_text}}</p>
         <div class="viz" aria-hidden="true">
           <div class="win">
             <div class="win__bar"><i></i><i></i><i></i><b>QOL</b></div>
@@ -1406,16 +1395,16 @@ html{scroll-behavior:smooth}
           </div>
         </div>
         <div class="wcard__caps" aria-hidden="true">
-          <span class="wcard__caps-k">Includes</span>
-          <ul><li>Systems integration</li><li>API design and development</li><li>ERP integration</li><li>CRM integration</li><li>WMS and warehouse systems</li><li>EHR and healthcare systems</li><li>Middleware and data sync</li><li>EDI</li></ul>
+          <span class="wcard__caps-k">{{what.includes_label}}</span>
+          <ul>{{#each what.groups.1.items}}<li>{{.}}</li>{{/each}}</ul>
         </div>
         <span class="wcard__go" aria-hidden="true">&#8594;</span>
       </article>
 
       <article class="wcard wcard--c">
         <span class="wcard__n">03</span>
-        <h3>Data &amp;<br>Reporting</h3>
-        <p>Reporting that assembles itself, so every team is looking at the same figure at the same time &mdash; and nobody rebuilds it in a spreadsheet.</p>
+        <h3>{{what.groups.2.card_title}}</h3>
+        <p>{{what.groups.2.card_text}}</p>
         <div class="viz" aria-hidden="true">
           <div class="win">
             <div class="win__bar"><i></i><i></i><i></i><b>QOL</b></div>
@@ -1433,16 +1422,16 @@ html{scroll-behavior:smooth}
           </div>
         </div>
         <div class="wcard__caps" aria-hidden="true">
-          <span class="wcard__caps-k">Includes</span>
-          <ul><li>Operational dashboards</li><li>Reporting automation</li><li>Data pipelines</li><li>BI implementation</li><li>Data migration</li></ul>
+          <span class="wcard__caps-k">{{what.includes_label}}</span>
+          <ul>{{#each what.groups.2.items}}<li>{{.}}</li>{{/each}}</ul>
         </div>
         <span class="wcard__go" aria-hidden="true">&#8594;</span>
       </article>
 
       <article class="wcard wcard--d">
         <span class="wcard__n">04</span>
-        <h3>Modernize<br>&amp; Build</h3>
-        <p>Ageing applications upgraded incrementally, and focused software built for the gaps your packaged platforms leave behind.</p>
+        <h3>{{what.groups.3.card_title}}</h3>
+        <p>{{what.groups.3.card_text}}</p>
         <div class="viz" aria-hidden="true">
           <div class="win">
             <div class="win__bar"><i></i><i></i><i></i><b>QOL</b></div>
@@ -1461,8 +1450,8 @@ html{scroll-behavior:smooth}
           </div>
         </div>
         <div class="wcard__caps" aria-hidden="true">
-          <span class="wcard__caps-k">Includes</span>
-          <ul><li>Legacy application modernization</li><li>Cloud migration</li><li>Custom web applications</li><li>Mobile applications</li><li>Customer and partner portals</li><li>QA and test automation</li><li>Application maintenance</li><li>Team augmentation</li></ul>
+          <span class="wcard__caps-k">{{what.includes_label}}</span>
+          <ul>{{#each what.groups.3.items}}<li>{{.}}</li>{{/each}}</ul>
         </div>
         <span class="wcard__go" aria-hidden="true">&#8594;</span>
       </article>
@@ -1478,15 +1467,15 @@ html{scroll-behavior:smooth}
   <div class="wrap">
     <div class="workhead reveal">
       <div class="workhead__l">
-        <p class="eyebrow">Our work</p>
-        <h2>Work that moves industries forward.</h2>
+        <p class="eyebrow">{{work.eyebrow}}</p>
+        <h2>{{work.heading}}</h2>
       </div>
       <div class="wnav">
         <div class="wnav__btns">
           <button class="wbtn" type="button" id="wprev" aria-label="Previous project">&#8592;</button>
           <button class="wbtn" type="button" id="wnext" aria-label="Next project">&#8594;</button>
         </div>
-        <span class="wcount" aria-hidden="true"><b id="wnow">01</b> / 06</span>
+        <span class="wcount" aria-hidden="true"><b id="wnow">01</b> / {{count work.cases}}</span>
       </div>
     </div>
 
@@ -1494,102 +1483,97 @@ html{scroll-behavior:smooth}
         <article class="wcase is-on" id="w-0">
           <div class="wcase__viz wv--h" aria-hidden="true"><div class="win"><div class="win__bar"><i></i><i></i><i></i><b>Patient app</b></div><div class="win__body"><div class="win__side"><span>Home</span><span class="on">Visits</span><span>Messages</span><span>Records</span></div><div class="win__main"><span class="win__t">Upcoming visit</span><span class="win__pill">Confirm your appointment</span><span class="win__row"><i class="win__tick"></i>Check in online</span><span class="win__row"><i class="win__tick"></i>Forms completed</span><span class="win__row"><i class="win__tick"></i>Reminder sent</span></div></div></div></div>
           <div class="wcase__body">
-            <span class="wcase__k">Healthcare</span>
-            <h3>Beth Israel Lahey Health</h3>
-            <p class="wcase__tag">Better tools for better care.</p>
-            <p>Digital healthcare applications and modernization work supporting patient and enterprise experiences.</p>
-            <a class="wcase__go" href="#what">What we do in healthcare <span aria-hidden="true">&#8594;</span></a>
+            <span class="wcase__k">{{work.cases.0.sector}}</span>
+            <h3>{{work.cases.0.client}}</h3>
+            <p class="wcase__tag">{{work.cases.0.tagline}}</p>
+            <p>{{work.cases.0.summary}}</p>
+            <a class="wcase__go" href="#what">{{work.cases.0.link}} <span aria-hidden="true">&#8594;</span></a>
           </div>
           <div class="wcase__side">
-            <span class="k">What we did</span>
-            <b>Modernize</b><b>Integrate</b><b>Build</b>
+            <span class="k">{{work.did_label}}</span>
+            {{#each work.cases.0.did}}<b>{{.}}</b>{{/each}}
             <i aria-hidden="true"></i>
           </div>
         </article>
         <article class="wcase" id="w-1">
           <div class="wcase__viz wv--w" aria-hidden="true"><div class="win"><div class="win__bar"><i></i><i></i><i></i><b>Operations</b></div><div class="win__body"><div class="win__side"><span class="on">Orders</span><span>Inventory</span><span>Shipping</span><span>Layout</span><span>Reports</span></div><div class="win__main"><span class="win__t">Today's orders</span><div class="win__bars"><i style="height:40%"></i><i style="height:58%"></i><i style="height:48%"></i><i style="height:72%"></i><i style="height:64%"></i><i style="height:86%"></i><i style="height:78%"></i></div><div class="win__tiles"><span><b>&#9652;</b>Picked</span><span><b>&#9652;</b>Packed</span><span><b>&#9652;</b>Shipped</span></div></div></div></div></div>
           <div class="wcase__body">
-            <span class="wcase__k">Warehousing</span>
-            <h3>Intek</h3>
-            <p class="wcase__tag">Every order in one place.</p>
-            <p>A web application supporting warehouse operations: orders, inventory, shipping, warehouse layout, reporting and analytics.</p>
-            <a class="wcase__go" href="#what">What we do in warehousing <span aria-hidden="true">&#8594;</span></a>
+            <span class="wcase__k">{{work.cases.1.sector}}</span>
+            <h3>{{work.cases.1.client}}</h3>
+            <p class="wcase__tag">{{work.cases.1.tagline}}</p>
+            <p>{{work.cases.1.summary}}</p>
+            <a class="wcase__go" href="#what">{{work.cases.1.link}} <span aria-hidden="true">&#8594;</span></a>
           </div>
           <div class="wcase__side">
-            <span class="k">What we did</span>
-            <b>Build</b><b>Integrate</b><b>Report</b>
+            <span class="k">{{work.did_label}}</span>
+            {{#each work.cases.1.did}}<b>{{.}}</b>{{/each}}
             <i aria-hidden="true"></i>
           </div>
         </article>
         <article class="wcase" id="w-2">
           <div class="wcase__viz wv--c" aria-hidden="true"><div class="win"><div class="win__bar"><i></i><i></i><i></i><b>Fulfilment</b></div><div class="win__body"><div class="win__side"><span class="on">Picking</span><span>Stock</span><span>Waves</span><span>Staff</span></div><div class="win__main"><span class="win__t">Pick wave</span><span class="win__pill">Next wave ready</span><span class="win__row"><i class="win__tick"></i>Route optimised</span><span class="win__row"><i class="win__tick"></i>Stock verified</span><span class="win__row"><i class="win__tick"></i>Wave released</span></div></div></div></div>
           <div class="wcase__body">
-            <span class="wcase__k">Automation</span>
-            <h3>AWL</h3>
-            <p class="wcase__tag">Fulfilment that keeps pace.</p>
-            <p>Warehouse automation software designed around fulfillment, picking, inventory accuracy and warehouse productivity.</p>
-            <a class="wcase__go" href="#what">What we do in automation <span aria-hidden="true">&#8594;</span></a>
+            <span class="wcase__k">{{work.cases.2.sector}}</span>
+            <h3>{{work.cases.2.client}}</h3>
+            <p class="wcase__tag">{{work.cases.2.tagline}}</p>
+            <p>{{work.cases.2.summary}}</p>
+            <a class="wcase__go" href="#what">{{work.cases.2.link}} <span aria-hidden="true">&#8594;</span></a>
           </div>
           <div class="wcase__side">
-            <span class="k">What we did</span>
-            <b>Automate</b><b>Build</b>
+            <span class="k">{{work.did_label}}</span>
+            {{#each work.cases.2.did}}<b>{{.}}</b>{{/each}}
             <i aria-hidden="true"></i>
           </div>
         </article>
         <article class="wcase" id="w-3">
           <div class="wcase__viz wv--s" aria-hidden="true"><div class="win"><div class="win__bar"><i></i><i></i><i></i><b>Campaigns</b></div><div class="win__body"><div class="win__side"><span>Plan</span><span class="on">Channels</span><span>Audience</span><span>Results</span></div><div class="win__main"><span class="win__t">Omnichannel campaign</span><div class="win__flow"><div class="win__chips"><b>Email</b><b>SMS</b><b>Social</b></div><span class="win__dash"></span><div class="win__hub">One<br>plan</div><span class="win__dash"></span><div class="win__chips"><b>Web</b><b>App</b><b>Store</b></div></div></div></div></div></div>
           <div class="wcase__body">
-            <span class="wcase__k">Enterprise</span>
-            <h3>Yavun</h3>
-            <p class="wcase__tag">One platform, every channel.</p>
-            <p>Development and subsequent modernization of an enterprise omnichannel campaign-management platform.</p>
-            <a class="wcase__go" href="#what">What we do in enterprise <span aria-hidden="true">&#8594;</span></a>
+            <span class="wcase__k">{{work.cases.3.sector}}</span>
+            <h3>{{work.cases.3.client}}</h3>
+            <p class="wcase__tag">{{work.cases.3.tagline}}</p>
+            <p>{{work.cases.3.summary}}</p>
+            <a class="wcase__go" href="#what">{{work.cases.3.link}} <span aria-hidden="true">&#8594;</span></a>
           </div>
           <div class="wcase__side">
-            <span class="k">What we did</span>
-            <b>Build</b><b>Modernize</b>
+            <span class="k">{{work.did_label}}</span>
+            {{#each work.cases.3.did}}<b>{{.}}</b>{{/each}}
             <i aria-hidden="true"></i>
           </div>
         </article>
         <article class="wcase" id="w-4">
           <div class="wcase__viz wv--h" aria-hidden="true"><div class="win"><div class="win__bar"><i></i><i></i><i></i><b>Web platform</b></div><div class="win__body"><div class="win__side"><span>Pages</span><span>Content</span><span class="on">Releases</span><span>Health</span></div><div class="win__main"><span class="win__t">Release pipeline</span><span class="win__pill">New CMS live</span><span class="win__row"><i class="win__tick"></i>Content migrated</span><span class="win__row"><i class="win__tick"></i>Templates rebuilt</span><span class="win__row"><i class="win__tick"></i>Releases on schedule</span></div></div></div></div>
           <div class="wcase__body">
-            <span class="wcase__k">Cybersecurity</span>
-            <h3>Malwarebytes</h3>
-            <p class="wcase__tag">A platform that keeps shipping.</p>
-            <p>Migration and modernization of a large cybersecurity web platform and its content-management environment.</p>
-            <a class="wcase__go" href="#what">What we do in cybersecurity <span aria-hidden="true">&#8594;</span></a>
+            <span class="wcase__k">{{work.cases.4.sector}}</span>
+            <h3>{{work.cases.4.client}}</h3>
+            <p class="wcase__tag">{{work.cases.4.tagline}}</p>
+            <p>{{work.cases.4.summary}}</p>
+            <a class="wcase__go" href="#what">{{work.cases.4.link}} <span aria-hidden="true">&#8594;</span></a>
           </div>
           <div class="wcase__side">
-            <span class="k">What we did</span>
-            <b>Migrate</b><b>Modernize</b>
+            <span class="k">{{work.did_label}}</span>
+            {{#each work.cases.4.did}}<b>{{.}}</b>{{/each}}
             <i aria-hidden="true"></i>
           </div>
         </article>
         <article class="wcase" id="w-5">
           <div class="wcase__viz wv--s" aria-hidden="true"><div class="win"><div class="win__bar"><i></i><i></i><i></i><b>Cloud visibility</b></div><div class="win__body"><div class="win__side"><span class="on">Spend</span><span>Services</span><span>Alerts</span><span>Export</span></div><div class="win__main"><span class="win__t">Monthly view</span><div class="win__bars"><i style="height:70%"></i><i style="height:62%"></i><i style="height:66%"></i><i style="height:54%"></i><i style="height:50%"></i><i style="height:44%"></i><i style="height:40%"></i></div><div class="win__tiles"><span><b>&#9652;</b>Compute</span><span><b>&#9652;</b>Storage</span><span><b>&#9652;</b>Network</span></div></div></div></div></div>
           <div class="wcase__body">
-            <span class="wcase__k">Cloud</span>
-            <h3>SIOS</h3>
-            <p class="wcase__tag">See what the cloud is doing.</p>
-            <p>Cloud infrastructure reporting and visibility, built so the people who own the spend can actually read it.</p>
-            <a class="wcase__go" href="#what">What we do in cloud <span aria-hidden="true">&#8594;</span></a>
+            <span class="wcase__k">{{work.cases.5.sector}}</span>
+            <h3>{{work.cases.5.client}}</h3>
+            <p class="wcase__tag">{{work.cases.5.tagline}}</p>
+            <p>{{work.cases.5.summary}}</p>
+            <a class="wcase__go" href="#what">{{work.cases.5.link}} <span aria-hidden="true">&#8594;</span></a>
           </div>
           <div class="wcase__side">
-            <span class="k">What we did</span>
-            <b>Build</b><b>Report</b>
+            <span class="k">{{work.did_label}}</span>
+            {{#each work.cases.5.did}}<b>{{.}}</b>{{/each}}
             <i aria-hidden="true"></i>
           </div>
         </article>
     </div>
 
-    <div class="wtabs" role="tablist" aria-label="Selected projects" id="wtabs">
-      <button type="button" role="tab" data-w="0" aria-controls="w-0" aria-selected="true">Beth Israel Lahey Health</button>
-      <button type="button" role="tab" data-w="1" aria-controls="w-1" aria-selected="false">Intek</button>
-      <button type="button" role="tab" data-w="2" aria-controls="w-2" aria-selected="false">AWL</button>
-      <button type="button" role="tab" data-w="3" aria-controls="w-3" aria-selected="false">Yavun</button>
-      <button type="button" role="tab" data-w="4" aria-controls="w-4" aria-selected="false">Malwarebytes</button>
-      <button type="button" role="tab" data-w="5" aria-controls="w-5" aria-selected="false">SIOS</button>
+    <div class="wtabs" role="tablist" aria-label="Selected projects" id="wtabs">{{#each work.cases}}
+      <button type="button" role="tab" data-w="{{@index}}" aria-controls="w-{{@index}}" aria-selected="{{?first true|false}}">{{client}}</button>{{/each}}
     </div>
   </div>
 </section>
@@ -1610,79 +1594,40 @@ html{scroll-behavior:smooth}
   </svg>
   <div class="wrap">
     <div class="sect__head reveal">
-      <p class="eyebrow">In their words</p>
-      <h2>The people who trusted us.</h2>
+      <p class="eyebrow">{{testimonials.eyebrow}}</p>
+      <h2>{{testimonials.heading}}</h2>
       <span class="pchip">Placeholder quotes &amp; portraits</span>
     </div>
 
     <div class="vx reveal" id="quotes">
       <div class="vx__main">
-        <div class="vx__stage">
-          <blockquote class="vq is-on" id="q-0">
+        <div class="vx__stage">{{#each testimonials.quotes}}
+          <blockquote class="vq{{?first  is-on|}}" id="q-{{@index}}">
             <span class="vq__mark" aria-hidden="true">&ldquo;</span>
-            <p>Placeholder quote — a client describing the operational problem you solved and what changed on the ground, in their own words. Two or three sentences reads best.</p>
+            <p>{{quote}}</p>
             <footer>
               <span class="av av--lg" aria-hidden="true"><svg viewBox="0 0 44 44" fill="currentColor" aria-hidden="true"><circle cx="22" cy="16" r="8"/><path d="M4 44c0-9.4 8.1-15 18-15s18 5.6 18 15z"/></svg></span>
-              <span class="vq__who"><b>Client name</b><span>Director of Operations</span><span>Healthcare client</span></span>
+              <span class="vq__who"><b>{{name}}</b><span>{{role}}</span><span>{{organisation}}</span></span>
             </footer>
-          </blockquote>
-          <blockquote class="vq" id="q-1">
-            <span class="vq__mark" aria-hidden="true">&ldquo;</span>
-            <p>Placeholder quote — this one should speak to how the engagement ran: the pace, the judgement, and the honesty of the conversation.</p>
-            <footer>
-              <span class="av av--lg" aria-hidden="true"><svg viewBox="0 0 44 44" fill="currentColor" aria-hidden="true"><circle cx="22" cy="16" r="8"/><path d="M4 44c0-9.4 8.1-15 18-15s18 5.6 18 15z"/></svg></span>
-              <span class="vq__who"><b>Client name</b><span>Chief Technology Officer</span><span>Logistics client</span></span>
-            </footer>
-          </blockquote>
-          <blockquote class="vq" id="q-2">
-            <span class="vq__mark" aria-hidden="true">&ldquo;</span>
-            <p>Placeholder quote — the strongest third quote names a result. A number, a deadline met, or a process that no longer needs a person on it.</p>
-            <footer>
-              <span class="av av--lg" aria-hidden="true"><svg viewBox="0 0 44 44" fill="currentColor" aria-hidden="true"><circle cx="22" cy="16" r="8"/><path d="M4 44c0-9.4 8.1-15 18-15s18 5.6 18 15z"/></svg></span>
-              <span class="vq__who"><b>Client name</b><span>VP Technology</span><span>Financial services client</span></span>
-            </footer>
-          </blockquote>
-          <blockquote class="vq" id="q-3">
-            <span class="vq__mark" aria-hidden="true">&ldquo;</span>
-            <p>Placeholder quote — someone who has worked with the team across more than one project, speaking to staying power rather than a single delivery.</p>
-            <footer>
-              <span class="av av--lg" aria-hidden="true"><svg viewBox="0 0 44 44" fill="currentColor" aria-hidden="true"><circle cx="22" cy="16" r="8"/><path d="M4 44c0-9.4 8.1-15 18-15s18 5.6 18 15z"/></svg></span>
-              <span class="vq__who"><b>Client name</b><span>Head of IT</span><span>Manufacturing client</span></span>
-            </footer>
-          </blockquote>
+          </blockquote>{{/each}}
         </div>
 
         <div class="vx__ctrl">
           <button class="vbtn" type="button" id="vprev" aria-label="Previous testimonial">&#8592;</button>
           <button class="vbtn vbtn--on" type="button" id="vnext" aria-label="Next testimonial">&#8594;</button>
           <div class="vprog" aria-hidden="true"><i id="vfill"></i></div>
-          <span class="vcount" aria-hidden="true"><b id="vnow">01</b> / 04</span>
+          <span class="vcount" aria-hidden="true"><b id="vnow">01</b> / {{count testimonials.quotes}}</span>
         </div>
       </div>
 
       <aside class="vx__rail">
         <span class="vrail__k">More voices</span>
-        <ul class="vlist">
-            <li><button type="button" data-q="0" aria-current="true" aria-controls="q-0">
+        <ul class="vlist">{{#each testimonials.quotes}}
+            <li><button type="button" data-q="{{@index}}" aria-current="{{?first true|false}}" aria-controls="q-{{@index}}">
               <span class="av av--sm" aria-hidden="true"><svg viewBox="0 0 44 44" fill="currentColor" aria-hidden="true"><circle cx="22" cy="16" r="8"/><path d="M4 44c0-9.4 8.1-15 18-15s18 5.6 18 15z"/></svg></span>
-              <span class="vwho"><b>Client name</b><span>Director of Operations</span><span>Healthcare client</span></span>
-              <span class="vnum">01</span>
-            </button></li>
-            <li><button type="button" data-q="1" aria-current="false" aria-controls="q-1">
-              <span class="av av--sm" aria-hidden="true"><svg viewBox="0 0 44 44" fill="currentColor" aria-hidden="true"><circle cx="22" cy="16" r="8"/><path d="M4 44c0-9.4 8.1-15 18-15s18 5.6 18 15z"/></svg></span>
-              <span class="vwho"><b>Client name</b><span>Chief Technology Officer</span><span>Logistics client</span></span>
-              <span class="vnum">02</span>
-            </button></li>
-            <li><button type="button" data-q="2" aria-current="false" aria-controls="q-2">
-              <span class="av av--sm" aria-hidden="true"><svg viewBox="0 0 44 44" fill="currentColor" aria-hidden="true"><circle cx="22" cy="16" r="8"/><path d="M4 44c0-9.4 8.1-15 18-15s18 5.6 18 15z"/></svg></span>
-              <span class="vwho"><b>Client name</b><span>VP Technology</span><span>Financial services client</span></span>
-              <span class="vnum">03</span>
-            </button></li>
-            <li><button type="button" data-q="3" aria-current="false" aria-controls="q-3">
-              <span class="av av--sm" aria-hidden="true"><svg viewBox="0 0 44 44" fill="currentColor" aria-hidden="true"><circle cx="22" cy="16" r="8"/><path d="M4 44c0-9.4 8.1-15 18-15s18 5.6 18 15z"/></svg></span>
-              <span class="vwho"><b>Client name</b><span>Head of IT</span><span>Manufacturing client</span></span>
-              <span class="vnum">04</span>
-            </button></li>
+              <span class="vwho"><b>{{name}}</b><span>{{role}}</span><span>{{organisation}}</span></span>
+              <span class="vnum">{{@num}}</span>
+            </button></li>{{/each}}
         </ul>
         <a class="vall" href="#work">All client stories <span aria-hidden="true">&#8594;</span></a>
       </aside>
@@ -1695,61 +1640,61 @@ html{scroll-behavior:smooth}
   <div class="wrap">
     <div class="splithead reveal">
       <div class="splithead__l">
-        <p class="eyebrow">Our products</p>
-        <h2>Explore our product line.</h2>
+        <p class="eyebrow">{{products.eyebrow}}</p>
+        <h2>{{products.heading}}</h2>
       </div>
-      <p class="splithead__note">Discover how our products transform ideas into intelligent experiences.</p>
+      <p class="splithead__note">{{products.intro}}</p>
     </div>
     <div class="pds stagger">
       <div class="pd-cell">
         <article class="pd pd--b">
-          <a class="pd__art" href="https://www.ogmenrobotics.com/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+          <a class="pd__art" href="{{attr products.items.0.url}}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
             <div class="win"><div class="win__bar"><i></i><i></i><i></i><b>Ogmen</b></div><div class="win__body"><div class="win__side"><span class="on">Home</span><span>Play</span><span>Camera</span><span>Care</span></div><div class="win__main"><span class="win__t">Today with your pet</span><span class="win__pill">All calm at home</span><span class="win__row"><i class="win__tick"></i>Play session done</span><span class="win__row"><i class="win__tick"></i>Camera check</span><span class="win__row"><i class="win__tick"></i>Treat reminder set</span></div></div></div>
           </a>
           <div class="pd__body">
-            <span class="pd__cat">Pet companion robot</span>
-            <h3>Ogmen</h3>
-            <p>A friendly robotic companion for pets, offering engagement, monitoring, and smart care powered by emotional intelligence.</p>
-            <a class="pd__go" href="https://www.ogmenrobotics.com/" target="_blank" rel="noopener">Visit ogmenrobotics.com <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <span class="pd__cat">{{products.items.0.category}}</span>
+            <h3>{{products.items.0.name}}</h3>
+            <p>{{products.items.0.description}}</p>
+            <a class="pd__go" href="{{attr products.items.0.url}}" target="_blank" rel="noopener">{{products.items.0.link}} <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           </div>
         </article>
       </div>
       <div class="pd-cell">
         <article class="pd pd--c">
-          <a class="pd__art" href="https://forkedge.com/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+          <a class="pd__art" href="{{attr products.items.1.url}}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
             <div class="win"><div class="win__bar"><i></i><i></i><i></i><b>ForkEdge</b></div><div class="win__body"><div class="win__side"><span class="on">Discover</span><span>Saved</span><span>Nearby</span><span>Profile</span></div><div class="win__main"><span class="win__t">Picks for tonight</span><span class="win__pill">Cosy &middot; Italian &middot; Nearby</span><span class="win__row"><i class="win__dot"></i>Matches your taste</span><span class="win__row"><i class="win__dot"></i>Fits your mood</span><span class="win__row"><i class="win__dot"></i>Close to you</span></div></div></div>
           </a>
           <div class="pd__body">
-            <span class="pd__cat">Digital platform for restaurants</span>
-            <h3>ForkEdge</h3>
-            <p>Discover curated dining experiences with intelligent recommendations tailored to your taste, mood, and location preferences.</p>
-            <a class="pd__go" href="https://forkedge.com/" target="_blank" rel="noopener">Visit forkedge.com <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <span class="pd__cat">{{products.items.1.category}}</span>
+            <h3>{{products.items.1.name}}</h3>
+            <p>{{products.items.1.description}}</p>
+            <a class="pd__go" href="{{attr products.items.1.url}}" target="_blank" rel="noopener">{{products.items.1.link}} <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           </div>
         </article>
       </div>
       <div class="pd-cell">
         <article class="pd pd--s">
-          <a class="pd__art" href="https://www.yavun.com/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+          <a class="pd__art" href="{{attr products.items.2.url}}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
             <div class="win"><div class="win__bar"><i></i><i></i><i></i><b>Yavun</b></div><div class="win__body"><div class="win__side"><span>Campaigns</span><span>Channels</span><span>Audience</span><span class="on">Insights</span></div><div class="win__main"><span class="win__t">Campaign performance</span><div class="win__bars"><i style="height:36%"></i><i style="height:48%"></i><i style="height:44%"></i><i style="height:60%"></i><i style="height:58%"></i><i style="height:74%"></i><i style="height:86%"></i></div><div class="win__tiles"><span><b>&#9652;</b>Email</span><span><b>&#9652;</b>Social</span><span><b>&#9652;</b>Search</span></div></div></div></div>
           </a>
           <div class="pd__body">
-            <span class="pd__cat">360&deg; campaign management</span>
-            <h3>Yavun</h3>
-            <p>Unify your marketing strategy with complete campaign oversight, real-time insights, automation, and performance-driven optimization tools.</p>
-            <a class="pd__go" href="https://www.yavun.com/" target="_blank" rel="noopener">Visit yavun.com <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <span class="pd__cat">{{products.items.2.category}}</span>
+            <h3>{{products.items.2.name}}</h3>
+            <p>{{products.items.2.description}}</p>
+            <a class="pd__go" href="{{attr products.items.2.url}}" target="_blank" rel="noopener">{{products.items.2.link}} <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           </div>
         </article>
       </div>
       <div class="pd-cell">
         <article class="pd pd--w">
-          <a class="pd__art" href="https://viteplan.com/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+          <a class="pd__art" href="{{attr products.items.3.url}}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
             <div class="win"><div class="win__bar"><i></i><i></i><i></i><b>Viteplan</b></div><div class="win__body"><div class="win__side"><span>Invites</span><span class="on">Guests</span><span>RSVPs</span><span>Plan</span></div><div class="win__main"><span class="win__t">Guest list</span><span class="win__pill">Invitations sent</span><span class="win__row"><i class="win__tick"></i>RSVPs tracked</span><span class="win__row"><i class="win__tick"></i>Meals chosen</span><span class="win__row"><i class="win__tick"></i>Seating planned</span></div></div></div>
           </a>
           <div class="pd__body">
-            <span class="pd__cat">Wedding invitation manager</span>
-            <h3>Viteplan</h3>
-            <p>Plan every wedding detail seamlessly &mdash; invites, guests, RSVPs, and coordination &mdash; all managed beautifully in one smart platform.</p>
-            <a class="pd__go" href="https://viteplan.com/" target="_blank" rel="noopener">Visit viteplan.com <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <span class="pd__cat">{{products.items.3.category}}</span>
+            <h3>{{products.items.3.name}}</h3>
+            <p>{{products.items.3.description}}</p>
+            <a class="pd__go" href="{{attr products.items.3.url}}" target="_blank" rel="noopener">{{products.items.3.link}} <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           </div>
         </article>
       </div>
@@ -1762,21 +1707,21 @@ html{scroll-behavior:smooth}
   <div class="wrap">
     <div class="ab">
       <div class="ab__copy">
-        <p class="eyebrow reveal">About</p>
-        <h2 class="ab__title reveal">Built to make<br> work work better.</h2>
-        <p class="ab__lede reveal reveal-d1">QOL Works is a software engineering company that helps organizations run smarter &mdash; through automation, connected systems and intelligent software.</p>
+        <p class="eyebrow reveal">{{about.eyebrow}}</p>
+        <h2 class="ab__title reveal">{{about.heading}}</h2>
+        <p class="ab__lede reveal reveal-d1">{{about.intro}}</p>
         <ul class="ab-feats stagger">
           <li class="ab-feat">
             <span class="ab-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3.3 19.5c0-3.3 2.6-5.6 5.7-5.6s5.7 2.3 5.7 5.6"/><circle cx="16.8" cy="7.6" r="2.6"/><path d="M15.9 13.4c2.8.2 4.8 2.3 4.8 5.3"/></svg></span>
-            <div><h3>Senior engineering leadership</h3><p>Deep technical expertise, focused on real outcomes.</p></div>
+            <div><h3>{{about.points.0.title}}</h3><p>{{about.points.0.text}}</p></div>
           </li>
           <li class="ab-feat">
             <span class="ab-ico ab-ico--c" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>
-            <div><h3>Operational systems experience</h3><p>We understand the complexity of how businesses run.</p></div>
+            <div><h3>{{about.points.1.title}}</h3><p>{{about.points.1.text}}</p></div>
           </li>
           <li class="ab-feat">
             <span class="ab-ico ab-ico--g" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 21V5.5L13 3v18"/><path d="M13 21h7V10h-7"/><path d="M7 8h3M7 12h3M7 16h3M16 13.5h1.5M16 17h1.5M2.5 21h19"/></svg></span>
-            <div><h3>Built across healthcare, warehousing, cybersecurity and more</h3><p>Proven in complex, high-stakes environments.</p></div>
+            <div><h3>{{about.points.2.title}}</h3><p>{{about.points.2.text}}</p></div>
           </li>
         </ul>
       </div>
@@ -1795,12 +1740,12 @@ html{scroll-behavior:smooth}
 
     <div class="ab-stats reveal" id="abStats">
       <span class="pchip">Figures to confirm</span>
-      <div class="ab-stat"><b data-n="10" data-sfx="+">10+</b><span>Years of experience</span></div>
-      <div class="ab-stat"><b data-n="50" data-sfx="+">50+</b><span>Systems modernized</span></div>
-      <div class="ab-stat draft-only"><b>00</b><span>Countries we work in</span></div>
+      <div class="ab-stat"><b>{{about.figures.0.value}}</b><span>{{about.figures.0.label}}</span></div>
+      <div class="ab-stat"><b>{{about.figures.1.value}}</b><span>{{about.figures.1.label}}</span></div>
+      <div class="ab-stat draft-only"><b>{{about.figures.2.value}}</b><span>{{about.figures.2.label}}</span></div>
       <div class="ab-trust">
         <span class="ab-trust__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 2.8h12a1 1 0 0 1 1 1V21l-7-4.4L5 21V3.8a1 1 0 0 1 1-1z" fill="currentColor"/><path d="m12 6.6 1.25 2.55 2.8.4-2.03 1.98.48 2.8L12 13.02l-2.5 1.31.48-2.8-2.03-1.98 2.8-.4z" fill="#fff"/></svg></span>
-        <p>A trusted partner for complex, mission-critical work.</p>
+        <p>{{about.trust_line}}</p>
         <div class="ab-marks draft-only" aria-label="Recognition and partnerships">
           <span class="ab-mark">Award</span><span class="ab-mark">Award</span><span class="ab-mark">Partner</span><span class="ab-mark">Partner</span><span class="ab-mark">Cert</span>
         </div>
@@ -1823,71 +1768,66 @@ html{scroll-behavior:smooth}
   <div class="wrap">
     <div class="splithead reveal">
       <div class="splithead__l">
-        <p class="eyebrow">Engagements</p>
-        <h2 class="eng-title">Where should we start?</h2>
+        <p class="eyebrow">{{engagements.eyebrow}}</p>
+        <h2 class="eng-title">{{engagements.heading}}</h2>
       </div>
-      <p class="splithead__note">No matter where you are on your journey, we&rsquo;ll meet you there &mdash; and help you move forward with clarity and momentum.</p>
+      <p class="splithead__note">{{engagements.intro}}</p>
     </div>
 
     <div class="engs stagger">
       <div class="eng-cell">
-        <a class="eng eng--b" style="--card:#F7F6F4" href="#contact" data-eng="Automation Opportunity Assessment" aria-label="Not sure where to start? Automation Opportunity Assessment — start a conversation about it">
+        <a class="eng eng--b" style="--card:#F7F6F4" href="#contact" data-eng="{{attr engagements.items.0.name}}" aria-label="{{attr engagements.items.0.question}} {{attr engagements.items.0.name}} &mdash; start a conversation about it">
           <div class="eng__art"><img src="assets/img/eng/assess.jpg" alt="" width="210" height="260" loading="lazy" decoding="async"></div>
-          <h3 class="eng__q">Not sure where to start?</h3>
-          <span class="eng__name"><span>Automation Opportunity Assessment</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <h3 class="eng__q">{{engagements.items.0.question}}</h3>
+          <span class="eng__name"><span>{{engagements.items.0.name}}</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </a>
       </div>
       <div class="eng-cell">
-        <a class="eng eng--c" style="--card:#FAF7F4" href="#contact" data-eng="Integration Sprint" aria-label="Our systems do not talk. Integration Sprint — start a conversation about it">
+        <a class="eng eng--c" style="--card:#FAF7F4" href="#contact" data-eng="{{attr engagements.items.1.name}}" aria-label="{{attr engagements.items.1.question}} {{attr engagements.items.1.name}} &mdash; start a conversation about it">
           <div class="eng__art"><img src="assets/img/eng/integrate.jpg" alt="" width="210" height="260" loading="lazy" decoding="async"></div>
-          <h3 class="eng__q">Our systems do not talk.</h3>
-          <span class="eng__name"><span>Integration Sprint</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <h3 class="eng__q">{{engagements.items.1.question}}</h3>
+          <span class="eng__name"><span>{{engagements.items.1.name}}</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </a>
       </div>
       <div class="eng-cell">
-        <a class="eng eng--b" style="--card:#F7F6F6" href="#contact" data-eng="Workflow Automation Pilot" aria-label="We want to automate a process. Workflow Automation Pilot — start a conversation about it">
+        <a class="eng eng--b" style="--card:#F7F6F6" href="#contact" data-eng="{{attr engagements.items.2.name}}" aria-label="{{attr engagements.items.2.question}} {{attr engagements.items.2.name}} &mdash; start a conversation about it">
           <div class="eng__art"><img src="assets/img/eng/automate.jpg" alt="" width="210" height="260" loading="lazy" decoding="async"></div>
-          <h3 class="eng__q">We want to automate a process.</h3>
-          <span class="eng__name"><span>Workflow Automation Pilot</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <h3 class="eng__q">{{engagements.items.2.question}}</h3>
+          <span class="eng__name"><span>{{engagements.items.2.name}}</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </a>
       </div>
       <div class="eng-cell">
-        <a class="eng eng--c" style="--card:#F8F5F3" href="#contact" data-eng="Modernization Track" aria-label="Our platform is aging. Modernization Track — start a conversation about it">
+        <a class="eng eng--c" style="--card:#F8F5F3" href="#contact" data-eng="{{attr engagements.items.3.name}}" aria-label="{{attr engagements.items.3.question}} {{attr engagements.items.3.name}} &mdash; start a conversation about it">
           <div class="eng__art"><img src="assets/img/eng/modernize.jpg" alt="" width="210" height="260" loading="lazy" decoding="async"></div>
-          <h3 class="eng__q">Our platform is aging.</h3>
-          <span class="eng__name"><span>Modernization Track</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <h3 class="eng__q">{{engagements.items.3.question}}</h3>
+          <span class="eng__name"><span>{{engagements.items.3.name}}</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </a>
       </div>
       <div class="eng-cell">
-        <a class="eng eng--b" style="--card:#F6F4F4" href="#contact" data-eng="Practical AI Pilot" aria-label="We want to test AI on a real problem. Practical AI Pilot — start a conversation about it">
+        <a class="eng eng--b" style="--card:#F6F4F4" href="#contact" data-eng="{{attr engagements.items.4.name}}" aria-label="{{attr engagements.items.4.question}} {{attr engagements.items.4.name}} &mdash; start a conversation about it">
           <div class="eng__art"><img src="assets/img/eng/ai.jpg" alt="" width="210" height="260" loading="lazy" decoding="async"></div>
-          <h3 class="eng__q">We want to test AI on a real problem.</h3>
-          <span class="eng__name"><span>Practical AI Pilot</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <h3 class="eng__q">{{engagements.items.4.question}}</h3>
+          <span class="eng__name"><span>{{engagements.items.4.name}}</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </a>
       </div>
       <div class="eng-cell">
-        <a class="eng eng--c" style="--card:#FAF7F3" href="#contact" data-eng="Embedded Engineering Team" aria-label="We need ongoing engineering support. Embedded Engineering Team — start a conversation about it">
+        <a class="eng eng--c" style="--card:#FAF7F3" href="#contact" data-eng="{{attr engagements.items.5.name}}" aria-label="{{attr engagements.items.5.question}} {{attr engagements.items.5.name}} &mdash; start a conversation about it">
           <div class="eng__art"><img src="assets/img/eng/team.jpg" alt="" width="210" height="260" loading="lazy" decoding="async"></div>
-          <h3 class="eng__q">We need ongoing engineering support.</h3>
-          <span class="eng__name"><span>Embedded Engineering Team</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <h3 class="eng__q">{{engagements.items.5.question}}</h3>
+          <span class="eng__name"><span>{{engagements.items.5.name}}</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </a>
       </div>
     </div>
 
     <div class="ladder reveal" aria-label="Engagements from smaller commitment to deeper partnership">
-      <span class="ladder__end">Smaller commitment</span>
+      <span class="ladder__end">{{engagements.ladder_start}}</span>
       <div class="ladder__track">
         <i class="ladder__line" aria-hidden="true"></i>
-        <ol class="ladder__row">
-          <li><i class="ladder__dot"></i><b>Assess</b><span>Find the right opportunity</span></li>
-          <li><i class="ladder__dot"></i><b>Integrate</b><span>Connect your systems</span></li>
-          <li><i class="ladder__dot"></i><b>Automate</b><span>Prove value with a focused pilot</span></li>
-          <li><i class="ladder__dot"></i><b>Modernize</b><span>Upgrade for what&rsquo;s next</span></li>
-          <li><i class="ladder__dot"></i><b>Apply AI</b><span>Solve a real business problem</span></li>
-          <li><i class="ladder__dot"></i><b>Scale</b><span>Build a lasting partnership</span></li>
+        <ol class="ladder__row">{{#each engagements.items}}
+          <li><i class="ladder__dot"></i><b>{{step}}</b><span>{{step_text}}</span></li>{{/each}}
         </ol>
       </div>
-      <span class="ladder__end ladder__end--r">Deeper partnership</span>
+      <span class="ladder__end ladder__end--r">{{engagements.ladder_end}}</span>
     </div>
   </div>
 </section>
@@ -1900,37 +1840,37 @@ html{scroll-behavior:smooth}
   </svg>
   <div class="wrap">
     <div class="sect__head reveal">
-      <p class="eyebrow">Try it</p>
-      <h2>What would you automate first?</h2>
-      <p class="lede">Pick the task that eats your team&rsquo;s time. See what changes.</p>
+      <p class="eyebrow">{{tryit.eyebrow}}</p>
+      <h2>{{tryit.heading}}</h2>
+      <p class="lede">{{tryit.intro}}</p>
     </div>
 
     <div class="tp reveal" id="tp">
       <div class="tp-picks" role="group" aria-label="Pick a task">
-        <button type="button" class="tp-pick" data-k="orders" aria-pressed="true"><span class="tp-pick__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span><span>Re-typing orders</span></button>
-        <button type="button" class="tp-pick" data-k="approvals" aria-pressed="false"><span class="tp-pick__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 6h16v10H8l-4 4z"/><path d="m9 11 2 2 4-4"/></svg></span><span>Chasing approvals</span></button>
-        <button type="button" class="tp-pick" data-k="report" aria-pressed="false"><span class="tp-pick__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20V4M4 20h16"/><path d="M8 16v-4M12 16V9M16 16v-6"/></svg></span><span>The weekly report</span></button>
-        <button type="button" class="tp-pick" data-k="pdfs" aria-pressed="false"><span class="tp-pick__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span><span>Copying from PDFs</span></button>
-        <button type="button" class="tp-pick" data-k="onboarding" aria-pressed="false"><span class="tp-pick__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10" cy="8" r="3.5"/><path d="M3.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><path d="M19 8v6M16 11h6"/></svg></span><span>Onboarding a client</span></button>
-        <button type="button" class="tp-pick" data-k="legacy" aria-pressed="false"><span class="tp-pick__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/><path d="M8 10h3M13 10h3"/></svg></span><span>Ageing software</span></button>
+        <button type="button" class="tp-pick" data-k="0" aria-pressed="true"><span class="tp-pick__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span><span>{{tryit.scenarios.0.label}}</span></button>
+        <button type="button" class="tp-pick" data-k="1" aria-pressed="false"><span class="tp-pick__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 6h16v10H8l-4 4z"/><path d="m9 11 2 2 4-4"/></svg></span><span>{{tryit.scenarios.1.label}}</span></button>
+        <button type="button" class="tp-pick" data-k="2" aria-pressed="false"><span class="tp-pick__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20V4M4 20h16"/><path d="M8 16v-4M12 16V9M16 16v-6"/></svg></span><span>{{tryit.scenarios.2.label}}</span></button>
+        <button type="button" class="tp-pick" data-k="3" aria-pressed="false"><span class="tp-pick__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span><span>{{tryit.scenarios.3.label}}</span></button>
+        <button type="button" class="tp-pick" data-k="4" aria-pressed="false"><span class="tp-pick__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10" cy="8" r="3.5"/><path d="M3.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><path d="M19 8v6M16 11h6"/></svg></span><span>{{tryit.scenarios.4.label}}</span></button>
+        <button type="button" class="tp-pick" data-k="5" aria-pressed="false"><span class="tp-pick__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/><path d="M8 10h3M13 10h3"/></svg></span><span>{{tryit.scenarios.5.label}}</span></button>
       </div>
 
       <div class="tp-stage" id="tpStage" aria-live="polite">
         <div class="tp-col tp-col--before">
-          <span class="tp-k">Today</span>
-          <ul id="tpBefore"><li style="--i:0"><span class="tp-ring"></span><span>Export orders from the warehouse system</span></li><li style="--i:1"><span class="tp-ring"></span><span>Paste them into a spreadsheet</span></li><li style="--i:2"><span class="tp-ring"></span><span>Fix the codes and email finance</span></li></ul>
+          <span class="tp-k">{{tryit.today_label}}</span>
+          <ul id="tpBefore">{{#each tryit.scenarios.0.before}}<li style="--i:{{@index}}"><span class="tp-ring"></span><span>{{.}}</span></li>{{/each}}</ul>
         </div>
         <div class="tp-arrow" aria-hidden="true"><span></span><svg viewBox="0 0 20 20"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div class="tp-col tp-col--after">
-          <span class="tp-k">With QOL Works</span>
-          <ul id="tpAfter"><li style="--i:0"><span class="tp-tick"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 8.5 3 3 6-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Orders reach finance on their own</span></li><li style="--i:1"><span class="tp-tick"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 8.5 3 3 6-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Codes are matched automatically</span></li><li style="--i:2"><span class="tp-tick"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 8.5 3 3 6-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Nobody re-types a thing</span></li></ul>
+          <span class="tp-k">{{tryit.after_label}}</span>
+          <ul id="tpAfter">{{#each tryit.scenarios.0.after}}<li style="--i:{{@index}}"><span class="tp-tick"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m3.5 8.5 3 3 6-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>{{.}}</span></li>{{/each}}</ul>
         </div>
       </div>
 
       <div class="tp-foot">
-        <span class="tp-tag" id="tpTag">Integrate</span>
-        <p><b>First step:</b> <span id="tpFirst">Connect the two systems for one customer, then widen it.</span></p>
-        <a class="btn btn--primary" href="#contact" id="tpGo">Talk to us about this <span class="ar" aria-hidden="true">&#8594;</span></a>
+        <span class="tp-tag" id="tpTag">{{tryit.scenarios.0.tag}}</span>
+        <p><b>{{tryit.first_step_label}}</b> <span id="tpFirst">{{tryit.scenarios.0.first_step}}</span></p>
+        <a class="btn btn--primary" href="#contact" id="tpGo">{{tryit.button}} <span class="ar" aria-hidden="true">&#8594;</span></a>
       </div>
     </div>
   </div>
@@ -1941,20 +1881,20 @@ html{scroll-behavior:smooth}
   <div class="wrap">
     <div class="ct">
       <div class="ct__copy">
-        <p class="eyebrow reveal">Contact</p>
-        <h2 class="ct__title reveal">Let&rsquo;s talk about<br> what should work better.</h2>
-        <p class="ct__lede reveal reveal-d1">Tell us about the process, system or operational problem you&rsquo;re trying to improve. We&rsquo;ll listen, ask a few questions, and explore how we can help.</p>
+        <p class="eyebrow reveal">{{contact.eyebrow}}</p>
+        <h2 class="ct__title reveal">{{contact.heading}}</h2>
+        <p class="ct__lede reveal reveal-d1">{{contact.intro}}</p>
         <ul class="ct-points stagger">
-          <li class="ct-point"><span class="ct-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span><div><b>No technical spec required.</b><span>Start with the problem, not your stack.</span></div></li>
-          <li class="ct-point"><span class="ct-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3.3 19.5c0-3.3 2.6-5.6 5.7-5.6s5.7 2.3 5.7 5.6"/><circle cx="16.8" cy="7.6" r="2.6"/><path d="M15.9 13.4c2.8.2 4.8 2.3 4.8 5.3"/></svg></span><div><b>You will talk to experienced builders.</b><span>Real people who understand operations, systems and change.</span></div></li>
-          <li class="ct-point"><span class="ct-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 19.5 6v5.5c0 4.6-3.2 8.2-7.5 9.5-4.3-1.3-7.5-4.9-7.5-9.5V6z"/><path d="m8.8 12.2 2.3 2.3 4.2-4.6"/></svg></span><div><b>We will tell you honestly if we&rsquo;re not the right fit.</b><span>You&rsquo;ll get a clear answer either way.</span></div></li>
+          <li class="ct-point"><span class="ct-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span><div><b>{{contact.points.0.title}}</b><span>{{contact.points.0.text}}</span></div></li>
+          <li class="ct-point"><span class="ct-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3.3 19.5c0-3.3 2.6-5.6 5.7-5.6s5.7 2.3 5.7 5.6"/><circle cx="16.8" cy="7.6" r="2.6"/><path d="M15.9 13.4c2.8.2 4.8 2.3 4.8 5.3"/></svg></span><div><b>{{contact.points.1.title}}</b><span>{{contact.points.1.text}}</span></div></li>
+          <li class="ct-point"><span class="ct-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 19.5 6v5.5c0 4.6-3.2 8.2-7.5 9.5-4.3-1.3-7.5-4.9-7.5-9.5V6z"/><path d="m8.8 12.2 2.3 2.3 4.2-4.6"/></svg></span><div><b>{{contact.points.2.title}}</b><span>{{contact.points.2.text}}</span></div></li>
         </ul>
         <!-- temporary image: replace assets/img/contact.jpg (16:9) -->
         <div class="ct-photo-wrap reveal">
           <figure class="ct-photo">
             <img src="assets/img/contact.jpg" alt="Three colleagues laughing together over a laptop" width="627" height="353" loading="lazy">
           </figure>
-          <p class="ct-chip"><span aria-hidden="true"></span>A real person reads every note</p>
+          <p class="ct-chip"><span aria-hidden="true"></span>{{contact.photo_caption}}</p>
           <svg class="ct-arc" viewBox="0 0 200 140" fill="none" aria-hidden="true">
             <path d="M-10 120C40 60 110 30 210 34" stroke="#D6DFEB" stroke-width="1.3"/>
             <path d="M20 150C70 100 140 84 210 92" stroke="#E3E9F1" stroke-width="1.2"/>
@@ -1966,28 +1906,26 @@ html{scroll-behavior:smooth}
 
       <div class="ct__side">
       <form class="form reveal reveal-d2" id="contactForm" novalidate>
-        <span class="ct-k" style="color:var(--ink)">Send us a note</span>
+        <span class="ct-k" style="color:var(--ink)">{{contact.form_title}}</span>
         <div class="form__row">
           <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" placeholder="Your name" autocomplete="name" required></div>
           <div class="field"><label for="f-company">Company</label><input id="f-company" name="company" type="text" placeholder="Organization name" autocomplete="organization"></div>
         </div>
         <div class="field"><label for="f-email">Work email</label><input id="f-email" name="email" type="email" placeholder="Business email address" autocomplete="email" required></div>
-        <div class="field"><label for="f-problem">What&rsquo;s the problem you&rsquo;re trying to solve?</label><textarea id="f-problem" name="problem" placeholder="A few details are enough to start." required></textarea></div>
-        <button class="btn btn--primary" type="submit">Book a conversation <span class="ar" aria-hidden="true">&#8594;</span></button>
+        <div class="field"><label for="f-problem">{{contact.problem_label}}</label><textarea id="f-problem" name="problem" placeholder="A few details are enough to start." required></textarea></div>
+        <button class="btn btn--primary" type="submit">{{contact.submit_button}} <span class="ar" aria-hidden="true">&#8594;</span></button>
         <p class="form__note draft-only" id="formNote">This is a preview build &mdash; the form is not yet wired to an inbox.</p>
         <p class="form__ok" id="formOk" hidden></p>
         <div class="xq">
-          <span class="ct-k">What to expect</span>
-          <details open><summary>What happens after I submit this form?</summary><p>Someone from the team reads it and replies to set up a first conversation. If it&rsquo;s clearly not something we do, we&rsquo;ll tell you rather than book a call.</p></details>
-          <details><summary>What happens on the first call?</summary><p>We ask about the process, not your stack. Then we say which of automation, integration, modernization or building fits &mdash; or that none of them do &mdash; and whether a smaller change would get you most of the way.</p></details>
-          <details><summary>Do I need a technical specification?</summary><p>No. A description of the process that&rsquo;s slowing you down is enough, and access to someone who does it every day.</p></details>
+          <span class="ct-k">{{contact.expect_label}}</span>{{#each contact.expect}}
+          <details{{?first  open|}}><summary>{{question}}</summary><p>{{answer}}</p></details>{{/each}}
         </div>
       </form>
         <div class="ct-reach reveal">
-          <span class="ct-k">Other ways to reach us</span>
+          <span class="ct-k">{{contact.reach_label}}</span>
           <div class="ct-reach__row">
-            <div class="ct-way"><span class="ct-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.8 6.5 8.2 6.3 8.2-6.3"/></svg></span><div><small>Email</small><strong>hello@qolworks.com<span class="todo">Placeholder</span></strong></div></div>
-            <div class="ct-way draft-only"><span class="ct-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0C18.5 15.4 12 21 12 21z"/><circle cx="12" cy="10" r="2.4"/></svg></span><div><small>Office</small><strong>City, State<span class="todo">Placeholder</span></strong></div></div>
+            <div class="ct-way"><span class="ct-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.8 6.5 8.2 6.3 8.2-6.3"/></svg></span><div><small>Email</small><strong>{{contact.email}}<span class="todo">Placeholder</span></strong></div></div>
+            <div class="ct-way draft-only"><span class="ct-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0C18.5 15.4 12 21 12 21z"/><circle cx="12" cy="10" r="2.4"/></svg></span><div><small>Office</small><strong>{{contact.office}}<span class="todo">Placeholder</span></strong></div></div>
           </div>
         </div>
       </div>
@@ -2006,23 +1944,18 @@ html{scroll-behavior:smooth}
     <div class="fq">
       <div class="fq__head">
         <div class="fq__head-in reveal">
-          <p class="eyebrow">Questions</p>
-          <h2 class="fq__title">Things people usually want to know.</h2>
-          <p class="fq__lede">Straight answers on how we work, what to expect, and where QOL Works fits in.</p>
+          <p class="eyebrow">{{faq.eyebrow}}</p>
+          <h2 class="fq__title">{{faq.heading}}</h2>
+          <p class="fq__lede">{{faq.intro}}</p>
           <div class="fq__ask">
-            <b>Didn&rsquo;t find your question?</b>
-            <span>Ask us directly &mdash; a short note is enough.</span>
-            <a class="btn btn--primary btn--sm" href="#contact">Send us a note <span class="ar" aria-hidden="true">&#8594;</span></a>
+            <b>{{faq.ask_title}}</b>
+            <span>{{faq.ask_text}}</span>
+            <a class="btn btn--primary btn--sm" href="#contact">{{faq.ask_button}} <span class="ar" aria-hidden="true">&#8594;</span></a>
           </div>
         </div>
       </div>
-      <ol class="fq__list stagger">
-        <li class="fq__item"><span class="fq__n" aria-hidden="true">01</span><div><h3>Do we have to replace our existing systems?</h3><p>Almost never. We typically build alongside your ERP, CRM, POS, WMS or healthcare platform and move information between them. Replacement is the last option we recommend, not the first.</p></div></li>
-        <li class="fq__item"><span class="fq__n" aria-hidden="true">02</span><div><h3>How small can a first project be?</h3><p>We can start small. Many customers begin with a focused use case or single location to prove value quickly, then expand from there.</p></div></li>
-        <li class="fq__item"><span class="fq__n" aria-hidden="true">03</span><div><h3>What do you need from us to start?</h3><p>A clear goal, access to the right stakeholders, and a small working group. We&rsquo;ll help define the scope and handle the rest.</p></div></li>
-        <li class="fq__item"><span class="fq__n" aria-hidden="true">04</span><div><h3>Do you work with our existing IT team or replace them?</h3><p>We work with your team, not around them. Our role is to complement your internal IT and bring specialized expertise where it&rsquo;s needed.</p></div></li>
-        <li class="fq__item"><span class="fq__n" aria-hidden="true">05</span><div><h3>Where does AI actually come in?</h3><p>AI is used where it creates real value &mdash; like automating manual work, surfacing insights from your data, and improving decisions. It&rsquo;s practical, not experimental.</p></div></li>
-        <li class="fq__item"><span class="fq__n" aria-hidden="true">06</span><div><h3>What happens after the first project ships?</h3><p>We measure impact, refine what&rsquo;s working, and scale to additional teams, locations or use cases. Our goal is a long-term partnership, not a one-off project.</p></div></li>
+      <ol class="fq__list stagger">{{#each faq.questions}}
+        <li class="fq__item"><span class="fq__n" aria-hidden="true">{{@num}}</span><div><h3>{{question}}</h3><p>{{answer}}</p></div></li>{{/each}}
       </ol>
     </div>
   </div>
@@ -2042,33 +1975,30 @@ html{scroll-behavior:smooth}
     <div class="foot-top reveal">
       <a class="foot-logo" href="#top" aria-label="QOL Works &mdash; back to top"><img src="assets/logo-white.png" alt="QOL Works" width="855" height="398"></a>
       <div class="foot-say">
-        <h2>Software engineering<br> for operational progress<i>.</i></h2>
-        <p>QOL Works helps organizations modernize, integrate, and automate the systems that power their operations &mdash; so people can focus on what moves the mission forward.</p>
+        <h2>{{footer.heading}}<i>.</i></h2>
+        <p>{{footer.text}}</p>
       </div>
       <p class="foot-motto" aria-label="Systems, people, progress">Systems<br>People<br>Progress</p>
     </div>
 
-    <nav class="foot-cols stagger" aria-label="Footer">
-      <div class="foot-col"><span class="foot-col__n">01</span><h3>AI &amp; Automation</h3><ul><li><a href="#what">Workflow automation<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a href="#what">Document processing &amp; OCR<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a href="#what">Approval and exception workflows<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a href="#what">AI agents and assistants<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a href="#what">LLM application development<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a href="#what">Intelligent data extraction<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li></ul></div>
-      <div class="foot-col"><span class="foot-col__n">02</span><h3>Connected Systems</h3><ul><li><a href="#what">Systems integration<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a href="#what">API design and development<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a href="#what">ERP integration<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a href="#what">CRM integration<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a href="#what">WMS and warehouse systems<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a href="#what">EHR and healthcare systems<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a href="#what">Middleware and data sync<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a href="#what">EDI<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li></ul></div>
-      <div class="foot-col"><span class="foot-col__n">03</span><h3>Data &amp; Intelligence</h3><ul><li><a href="#what">Operational dashboards<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a href="#what">Reporting automation<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a href="#what">Data pipelines<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a href="#what">BI implementation<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a href="#what">Data migration<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li></ul></div>
-      <div class="foot-col"><span class="foot-col__n">04</span><h3>Modernize &amp; Build</h3><ul><li><a href="#what">Legacy application modernization<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a href="#what">Cloud migration<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a href="#what">Custom web applications<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a href="#what">Mobile applications<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a href="#what">Customer and partner portals<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a href="#what">QA and test automation<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a href="#what">Application maintenance<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a href="#what">Team augmentation<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li></ul></div>
-      <div class="foot-col"><span class="foot-col__n">05</span><h3>Industries</h3><ul><li><a href="#card-healthcare">Healthcare<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a href="#card-warehousing">Warehousing &amp; Logistics<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a href="#card-cyber">Cybersecurity<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a href="#card-b2b">B2B &amp; Professional Services<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a href="#what">Manufacturing<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a href="#what">Hospitality<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li></ul></div>
+    <nav class="foot-cols stagger" aria-label="Footer">{{#each what.groups}}
+      <div class="foot-col"><span class="foot-col__n">{{@num}}</span><h3>{{title}}</h3><ul>{{#each items}}<li><a href="#what">{{.}}<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>{{/each}}</ul></div>{{/each}}
+      <div class="foot-col"><span class="foot-col__n">05</span><h3>{{footer.industries_label}}</h3><ul>{{#each footer.industries}}<li><a href="{{attr link}}">{{label}}<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>{{/each}}</ul></div>
       <div class="foot-col"><span class="foot-col__n">06</span><h3>Company</h3><ul><li><a href="#what">What We Do<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a href="#work">Our Work<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a href="#products">Products<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a href="#engagements">Engagements<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a href="#about">About<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a href="#contact">Careers<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li><li><a href="#contact">Contact<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li></ul></div>
     </nav>
 
     <div class="foot-touch reveal">
-      <div><span class="foot-touch__k">Get in touch</span><p class="foot-touch__lead">Let&rsquo;s build what&rsquo;s next<i>.</i></p></div>
+      <div><span class="foot-touch__k">{{footer.touch_label}}</span><p class="foot-touch__lead">{{footer.touch_heading}}<i>.</i></p></div>
       <div><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.8 6.5 8.2 6.3 8.2-6.3"/></svg>
-        <div><strong>hello@qolworks.com<span class="todo">Placeholder</span></strong><span class="sub">Tell us what&rsquo;s slowing your team down.</span></div></div>
+        <div><strong>{{contact.email}}<span class="todo">Placeholder</span></strong><span class="sub">{{footer.email_note}}</span></div></div>
       <div class="draft-only"><svg class="ico" viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0C18.5 15.4 12 21 12 21z"/><circle cx="12" cy="10" r="2.4"/></svg>
         <div><strong>Headquarters</strong><span class="sub">Street address, City, State<span class="todo">Placeholder</span></span></div></div>
-      <div class="foot-go"><span><strong>Ready when you are</strong><span class="sub">Talk with our team</span></span>
-        <a class="btn btn--primary" href="#contact">Book a conversation <span class="ar" aria-hidden="true">&#8594;</span></a></div>
+      <div class="foot-go"><span><strong>{{footer.cta_heading}}</strong><span class="sub">{{footer.cta_text}}</span></span>
+        <a class="btn btn--primary" href="#contact">{{site.primary_button}} <span class="ar" aria-hidden="true">&#8594;</span></a></div>
     </div>
 
     <div class="foot-base">
-      <span>&copy; 2026 QOL Works. All rights reserved. Formerly WebContentor.</span>
+      <span>{{footer.copyright}}</span>
       <div class="foot-legal">
         <a href="#" data-todo="privacy">Privacy Policy</a><a href="#" data-todo="terms">Terms of Use</a><a href="#" data-todo="cookies">Cookie Preferences</a><a href="#" data-todo="linkedin">LinkedIn &#8599;</a>
       </div>
@@ -2314,7 +2244,8 @@ html{scroll-behavior:smooth}
   /* ---------- try it: pick a task, see before and after ---------- */
   (function(){
     var box = document.getElementById("tp"); if (!box) return;
-    var DATA = {"orders": {"label": "Re-typing orders", "tag": "Integrate", "before": ["Export orders from the warehouse system", "Paste them into a spreadsheet", "Fix the codes and email finance"], "after": ["Orders reach finance on their own", "Codes are matched automatically", "Nobody re-types a thing"], "first": "Connect the two systems for one customer, then widen it."}, "approvals": {"label": "Chasing approvals", "tag": "Automate", "before": ["Requests arrive by email", "Someone forwards them to a manager", "Follow up until they reply"], "after": ["Requests go to the right person", "Reminders send themselves", "Every decision is on record"], "first": "Move one type of approval into a simple flow."}, "report": {"label": "The weekly report", "tag": "Report", "before": ["Pull numbers from three systems", "Rebuild the spreadsheet by hand", "Argue about which number is right"], "after": ["Numbers are pulled automatically", "The report arrives on its own", "Everyone sees the same figure"], "first": "Automate the one report your leadership reads most."}, "pdfs": {"label": "Copying from PDFs", "tag": "Apply AI", "before": ["Invoices and forms arrive as PDFs", "Someone types the details in", "Mistakes get caught later"], "after": ["Details are read automatically", "They land straight in your system", "Only unclear ones reach a person"], "first": "Start with one document type you receive every day."}, "onboarding": {"label": "Onboarding a client", "tag": "Integrate", "before": ["Create the client in the CRM", "Re-enter them in two more systems", "Chase sign-offs by email"], "after": ["Enter the client once", "The other systems update themselves", "Sign-offs are tracked in one place"], "first": "Link your CRM to one other system first."}, "legacy": {"label": "Ageing software", "tag": "Modernize", "before": ["Only one person understands it", "Every change is slow and risky", "Workarounds keep piling up"], "after": ["Upgraded piece by piece, still running", "Changes ship safely", "The business logic stays"], "first": "Map the system and upgrade the riskiest part first."}};
+    var DATA = {};
+    ({{json tryit.scenarios}}).forEach(function(d, n){ DATA[String(n)] = { label:d.label, tag:d.tag, before:d.before, after:d.after, first:d.first_step }; });
     var picks = Array.prototype.slice.call(box.querySelectorAll(".tp-pick"));
     var stage = document.getElementById("tpStage");
     var bEl = document.getElementById("tpBefore"), aEl = document.getElementById("tpAfter");
@@ -2505,7 +2436,13 @@ html{scroll-behavior:smooth}
   (function(){
     var band = document.getElementById("abStats");
     if (!band || !document.documentElement.classList.contains("js-anim")) return;
-    var nums = Array.prototype.slice.call(band.querySelectorAll("b[data-n]"));
+    /* the figure is read from the copy itself: "10+" counts to 10 and keeps "+" */
+    var nums = Array.prototype.slice.call(band.querySelectorAll(".ab-stat b")).filter(function(b){
+      var m = /^(\d+)(.*)$/.exec(b.textContent.trim());
+      if (!m) return false;
+      b.setAttribute("data-n", m[1]); b.setAttribute("data-sfx", m[2]);
+      return true;
+    });
     var done = false;
     function run(){
       if (done) return; done = true;

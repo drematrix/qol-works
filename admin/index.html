@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>QOL Works — edit the website</title>
+  <link rel="icon" href="../assets/favicon-32.png" sizes="32x32">
+  <script>window.CMS_MANUAL_INIT = true;</script>
+  <script src="https://cdn.jsdelivr.net/npm/decap-cms@3.16.3/dist/decap-cms.js"></script>
+</head>
+<body>
+  <script>
+    // Sign-in goes through this site's own /api/auth, whichever address the editor is on.
+    CMS.init({
+      config: {
+        backend: {
+          name: "github",
+          repo: "drematrix/qol-works",
+          branch: "main",
+          base_url: window.location.origin,
+          auth_endpoint: "api/auth"
+        },
+        site_url: window.location.origin,
+        display_url: window.location.origin,
+        logo_url: window.location.origin + "/assets/logo-graphite.png"
+      }
+    });
+  </script>
+</body>
+</html>

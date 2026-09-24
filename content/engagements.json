@@ -1,0 +1,45 @@
+{
+  "eyebrow": "Engagements",
+  "heading": "Where should we start?",
+  "intro": "No matter where you are on your journey, we’ll meet you there — and help you move forward with clarity and momentum.",
+  "items": [
+    {
+      "question": "Not sure where to start?",
+      "name": "Automation Opportunity Assessment",
+      "step": "Assess",
+      "step_text": "Find the right opportunity"
+    },
+    {
+      "question": "Our systems do not talk.",
+      "name": "Integration Sprint",
+      "step": "Integrate",
+      "step_text": "Connect your systems"
+    },
+    {
+      "question": "We want to automate a process.",
+      "name": "Workflow Automation Pilot",
+      "step": "Automate",
+      "step_text": "Prove value with a focused pilot"
+    },
+    {
+      "question": "Our platform is aging.",
+      "name": "Modernization Track",
+      "step": "Modernize",
+      "step_text": "Upgrade for what’s next"
+    },
+    {
+      "question": "We want to test AI on a real problem.",
+      "name": "Practical AI Pilot",
+      "step": "Apply AI",
+      "step_text": "Solve a real business problem"
+    },
+    {
+      "question": "We need ongoing engineering support.",
+      "name": "Embedded Engineering Team",
+      "step": "Scale",
+      "step_text": "Build a lasting partnership"
+    }
+  ],
+  "ladder_start": "Smaller commitment",
+  "ladder_end": "Deeper partnership"
+}

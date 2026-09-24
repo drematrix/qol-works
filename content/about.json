@@ -1,0 +1,34 @@
+{
+  "eyebrow": "About",
+  "heading": "Built to make\nwork work better.",
+  "intro": "QOL Works is a software engineering company that helps organizations run smarter — through automation, connected systems and intelligent software.",
+  "points": [
+    {
+      "text": "Deep technical expertise, focused on real outcomes.",
+      "title": "Senior engineering leadership"
+    },
+    {
+      "text": "We understand the complexity of how businesses run.",
+      "title": "Operational systems experience"
+    },
+    {
+      "text": "Proven in complex, high-stakes environments.",
+      "title": "Built across healthcare, warehousing, cybersecurity and more"
+    }
+  ],
+  "figures": [
+    {
+      "label": "Years of experience",
+      "value": "10+"
+    },
+    {
+      "label": "Systems modernized",
+      "value": "50+"
+    },
+    {
+      "label": "Countries we work in",
+      "value": "00"
+    }
+  ],
+  "trust_line": "A trusted partner for complex, mission-critical work."
+}

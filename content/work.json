@@ -1,0 +1,75 @@
+{
+  "eyebrow": "Our work",
+  "heading": "Work that moves industries forward.",
+  "did_label": "What we did",
+  "cases": [
+    {
+      "client": "Beth Israel Lahey Health",
+      "sector": "Healthcare",
+      "tagline": "Better tools for better care.",
+      "summary": "Digital healthcare applications and modernization work supporting patient and enterprise experiences.",
+      "link": "What we do in healthcare",
+      "did": [
+        "Modernize",
+        "Integrate",
+        "Build"
+      ]
+    },
+    {
+      "client": "Intek",
+      "sector": "Warehousing",
+      "tagline": "Every order in one place.",
+      "summary": "A web application supporting warehouse operations: orders, inventory, shipping, warehouse layout, reporting and analytics.",
+      "link": "What we do in warehousing",
+      "did": [
+        "Build",
+        "Integrate",
+        "Report"
+      ]
+    },
+    {
+      "client": "AWL",
+      "sector": "Automation",
+      "tagline": "Fulfilment that keeps pace.",
+      "summary": "Warehouse automation software designed around fulfillment, picking, inventory accuracy and warehouse productivity.",
+      "link": "What we do in automation",
+      "did": [
+        "Automate",
+        "Build"
+      ]
+    },
+    {
+      "client": "Yavun",
+      "sector": "Enterprise",
+      "tagline": "One platform, every channel.",
+      "summary": "Development and subsequent modernization of an enterprise omnichannel campaign-management platform.",
+      "link": "What we do in enterprise",
+      "did": [
+        "Build",
+        "Modernize"
+      ]
+    },
+    {
+      "client": "Malwarebytes",
+      "sector": "Cybersecurity",
+      "tagline": "A platform that keeps shipping.",
+      "summary": "Migration and modernization of a large cybersecurity web platform and its content-management environment.",
+      "link": "What we do in cybersecurity",
+      "did": [
+        "Migrate",
+        "Modernize"
+      ]
+    },
+    {
+      "client": "SIOS",
+      "sector": "Cloud",
+      "tagline": "See what the cloud is doing.",
+      "summary": "Cloud infrastructure reporting and visibility, built so the people who own the spend can actually read it.",
+      "link": "What we do in cloud",
+      "did": [
+        "Build",
+        "Report"
+      ]
+    }
+  ]
+}

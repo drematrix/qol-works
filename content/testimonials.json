@@ -1,0 +1,30 @@
+{
+  "eyebrow": "In their words",
+  "heading": "The people who trusted us.",
+  "quotes": [
+    {
+      "quote": "Placeholder quote — a client describing the operational problem you solved and what changed on the ground, in their own words. Two or three sentences reads best.",
+      "name": "Client name",
+      "role": "Director of Operations",
+      "organisation": "Healthcare client"
+    },
+    {
+      "quote": "Placeholder quote — this one should speak to how the engagement ran: the pace, the judgement, and the honesty of the conversation.",
+      "name": "Client name",
+      "role": "Chief Technology Officer",
+      "organisation": "Logistics client"
+    },
+    {
+      "quote": "Placeholder quote — the strongest third quote names a result. A number, a deadline met, or a process that no longer needs a person on it.",
+      "name": "Client name",
+      "role": "VP Technology",
+      "organisation": "Financial services client"
+    },
+    {
+      "quote": "Placeholder quote — someone who has worked with the team across more than one project, speaking to staying power rather than a single delivery.",
+      "name": "Client name",
+      "role": "Head of IT",
+      "organisation": "Manufacturing client"
+    }
+  ]
+}

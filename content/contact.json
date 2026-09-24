@@ -1,0 +1,41 @@
+{
+  "eyebrow": "Contact",
+  "heading": "Let’s talk about\nwhat should work better.",
+  "intro": "Tell us about the process, system or operational problem you’re trying to improve. We’ll listen, ask a few questions, and explore how we can help.",
+  "points": [
+    {
+      "text": "Start with the problem, not your stack.",
+      "title": "No technical spec required."
+    },
+    {
+      "text": "Real people who understand operations, systems and change.",
+      "title": "You will talk to experienced builders."
+    },
+    {
+      "text": "You’ll get a clear answer either way.",
+      "title": "We will tell you honestly if we’re not the right fit."
+    }
+  ],
+  "photo_caption": "A real person reads every note",
+  "form_title": "Send us a note",
+  "problem_label": "What’s the problem you’re trying to solve?",
+  "submit_button": "Book a conversation",
+  "expect_label": "What to expect",
+  "expect": [
+    {
+      "question": "What happens after I submit this form?",
+      "answer": "Someone from the team reads it and replies to set up a first conversation. If it’s clearly not something we do, we’ll tell you rather than book a call."
+    },
+    {
+      "question": "What happens on the first call?",
+      "answer": "We ask about the process, not your stack. Then we say which of automation, integration, modernization or building fits — or that none of them do — and whether a smaller change would get you most of the way."
+    },
+    {
+      "question": "Do I need a technical specification?",
+      "answer": "No. A description of the process that’s slowing you down is enough, and access to someone who does it every day."
+    }
+  ],
+  "reach_label": "Other ways to reach us",
+  "email": "hello@qolworks.com",
+  "office": "City, State"
+}

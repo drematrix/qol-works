@@ -1,0 +1,101 @@
+{
+  "eyebrow": "Try it",
+  "heading": "What would you automate first?",
+  "intro": "Pick the task that eats your team’s time. See what changes.",
+  "today_label": "Today",
+  "after_label": "With QOL Works",
+  "first_step_label": "First step:",
+  "button": "Talk to us about this",
+  "scenarios": [
+    {
+      "label": "Re-typing orders",
+      "tag": "Integrate",
+      "before": [
+        "Export orders from the warehouse system",
+        "Paste them into a spreadsheet",
+        "Fix the codes and email finance"
+      ],
+      "after": [
+        "Orders reach finance on their own",
+        "Codes are matched automatically",
+        "Nobody re-types a thing"
+      ],
+      "first_step": "Connect the two systems for one customer, then widen it."
+    },
+    {
+      "label": "Chasing approvals",
+      "tag": "Automate",
+      "before": [
+        "Requests arrive by email",
+        "Someone forwards them to a manager",
+        "Follow up until they reply"
+      ],
+      "after": [
+        "Requests go to the right person",
+        "Reminders send themselves",
+        "Every decision is on record"
+      ],
+      "first_step": "Move one type of approval into a simple flow."
+    },
+    {
+      "label": "The weekly report",
+      "tag": "Report",
+      "before": [
+        "Pull numbers from three systems",
+        "Rebuild the spreadsheet by hand",
+        "Argue about which number is right"
+      ],
+      "after": [
+        "Numbers are pulled automatically",
+        "The report arrives on its own",
+        "Everyone sees the same figure"
+      ],
+      "first_step": "Automate the one report your leadership reads most."
+    },
+    {
+      "label": "Copying from PDFs",
+      "tag": "Apply AI",
+      "before": [
+        "Invoices and forms arrive as PDFs",
+        "Someone types the details in",
+        "Mistakes get caught later"
+      ],
+      "after": [
+        "Details are read automatically",
+        "They land straight in your system",
+        "Only unclear ones reach a person"
+      ],
+      "first_step": "Start with one document type you receive every day."
+    },
+    {
+      "label": "Onboarding a client",
+      "tag": "Integrate",
+      "before": [
+        "Create the client in the CRM",
+        "Re-enter them in two more systems",
+        "Chase sign-offs by email"
+      ],
+      "after": [
+        "Enter the client once",
+        "The other systems update themselves",
+        "Sign-offs are tracked in one place"
+      ],
+      "first_step": "Link your CRM to one other system first."
+    },
+    {
+      "label": "Ageing software",
+      "tag": "Modernize",
+      "before": [
+        "Only one person understands it",
+        "Every change is slow and risky",
+        "Workarounds keep piling up"
+      ],
+      "after": [
+        "Upgraded piece by piece, still running",
+        "Changes ship safely",
+        "The business logic stays"
+      ],
+      "first_step": "Map the system and upgrade the riskiest part first."
+    }
+  ]
+}

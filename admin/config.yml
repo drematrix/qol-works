@@ -1,0 +1,316 @@
+# Decap CMS — editing the copy of qolworks.
+# Editors open /admin on the live site, sign in with GitHub, edit, and "Save".
+# With the editorial workflow, every change becomes a draft (a branch + pull request);
+# Vercel builds a preview link for it, and "Publish" merges it into main (the live site).
+
+backend:
+  name: github
+  repo: drematrix/qol-works
+  branch: main
+  auth_endpoint: api/auth          # served by api/auth.js on Vercel
+  # base_url is set in admin/index.html to the address the editor is on
+  commit_messages:
+    create: "Copy: create {{collection}} “{{slug}}”"
+    update: "Copy: update {{collection}} “{{slug}}”"
+    delete: "Copy: delete {{collection}} “{{slug}}”"
+    uploadMedia: "Upload “{{path}}”"
+    deleteMedia: "Delete “{{path}}”"
+
+publish_mode: editorial_workflow
+local_backend: true                # only used when /admin is opened on localhost with `npx decap-server`
+
+media_folder: assets/img/uploads
+public_folder: /assets/img/uploads
+
+collections:
+  - name: copy
+    label: Website copy
+    description: >-
+      Every piece of text on the website, section by section, in page order.
+      Press Enter inside a box to add a line break where the box allows it.
+      Lists marked "fixed" have one item per card on the page: their text can be edited, but items can't be added, removed or reordered.
+    editor: { preview: false }
+    files:
+
+      - label: "0 · Site-wide (page title, main button, menus)"
+        name: site
+        file: content/site.json
+        fields:
+          - { label: "Browser tab title", name: title, widget: string }
+          - { label: "Search engine description", name: description, widget: text, hint: "Shown in Google results. One or two sentences." }
+          - { label: "Main button label (header, hero)", name: primary_button, widget: string }
+          - label: "Solutions menu — side panel"
+            name: menu_solutions
+            widget: object
+            collapsed: true
+            fields: &menu_panel
+              - { label: "Small label", name: kicker, widget: string }
+              - { label: "Title", name: title, widget: string }
+              - { label: "Text", name: text, widget: text }
+              - { label: "Link label", name: link, widget: string }
+          - { label: "Products menu — side panel", name: menu_products, widget: object, collapsed: true, fields: *menu_panel }
+          - { label: "Engagements menu — side panel", name: menu_engagements, widget: object, collapsed: true, fields: *menu_panel }
+
+      - label: "1 · Hero"
+        name: hero
+        file: content/hero.json
+        fields:
+          - { label: "Small label above the headline", name: eyebrow, widget: string }
+          - { label: "Headline — first line", name: headline_line1, widget: string }
+          - { label: "Headline — second line (before the underlined word)", name: headline_line2, widget: string }
+          - { label: "Headline — underlined word", name: headline_highlight, widget: string }
+          - { label: "Headline — ending punctuation", name: headline_end, widget: string, required: false }
+          - { label: "Paragraph under the headline", name: subheading, widget: text }
+          - { label: "Second button label", name: secondary_button, widget: string }
+          - { label: "Right column — small label", name: impact_label, widget: string }
+          - { label: "Right column — heading", name: impact_heading, widget: string }
+          - { label: "Right column — points", name: impact_points, widget: list, field: { label: Point, name: point, widget: string } }
+          - { label: "Label before the industry tabs", name: industries_label, widget: string }
+          - label: "Industry photo cards (fixed: 4)"
+            name: industries
+            widget: list
+            allow_add: false
+            allow_remove: false
+            allow_reorder: false
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "Industry name (tab and card)", name: name, widget: string }
+              - { label: "Card text", name: text, widget: text, hint: "Two short lines work best (press Enter between them)." }
+              - { label: "Systems line", name: systems, widget: string, hint: "Separate with · (middle dot)." }
+              - { label: "Photo description (for screen readers)", name: image_alt, widget: string }
+
+      - label: "2 · Trusted by"
+        name: trust
+        file: content/trust.json
+        fields:
+          - { label: "Small label", name: label, widget: string }
+          - { label: "Heading next to the logos", name: heading, widget: string }
+
+      - label: "3 · What we do (also drives the Solutions menu and footer)"
+        name: what
+        file: content/what.json
+        fields:
+          - { label: "Small label", name: eyebrow, widget: string }
+          - { label: "Heading", name: heading, widget: string }
+          - { label: "Intro (right of the heading)", name: intro, widget: text }
+          - { label: "Label above each card's list", name: includes_label, widget: string }
+          - label: "Service groups (fixed: 4)"
+            name: groups
+            widget: list
+            allow_add: false
+            allow_remove: false
+            allow_reorder: false
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Name (menu and footer)", name: title, widget: string }
+              - { label: "Card title", name: card_title, widget: text, hint: "Press Enter to choose where the title breaks onto a second line." }
+              - { label: "Card text", name: card_text, widget: text }
+              - { label: "Capabilities (card, Solutions menu and footer)", name: items, widget: list, field: { label: Capability, name: item, widget: string } }
+
+      - label: "4 · Our work"
+        name: work
+        file: content/work.json
+        fields:
+          - { label: "Small label", name: eyebrow, widget: string }
+          - { label: "Heading", name: heading, widget: string }
+          - { label: "Label on the side panel", name: did_label, widget: string }
+          - label: "Client stories (fixed: 6)"
+            name: cases
+            widget: list
+            allow_add: false
+            allow_remove: false
+            allow_reorder: false
+            summary: "{{fields.client}}"
+            fields:
+              - { label: "Client name", name: client, widget: string }
+              - { label: "Sector", name: sector, widget: string }
+              - { label: "Tagline", name: tagline, widget: string }
+              - { label: "Summary", name: summary, widget: text }
+              - { label: "Link label", name: link, widget: string }
+              - { label: "What we did", name: did, widget: list, field: { label: Item, name: item, widget: string } }
+
+      - label: "5 · Testimonials (hidden on the site until real quotes are in)"
+        name: testimonials
+        file: content/testimonials.json
+        fields:
+          - { label: "Small label", name: eyebrow, widget: string }
+          - { label: "Heading", name: heading, widget: string }
+          - label: "Quotes"
+            name: quotes
+            widget: list
+            summary: "{{fields.name}} — {{fields.organisation}}"
+            fields:
+              - { label: "Quote", name: quote, widget: text }
+              - { label: "Name", name: name, widget: string }
+              - { label: "Role", name: role, widget: string }
+              - { label: "Organisation", name: organisation, widget: string }
+
+      - label: "6 · Our products (also drives the Products menu)"
+        name: products
+        file: content/products.json
+        fields:
+          - { label: "Small label", name: eyebrow, widget: string }
+          - { label: "Heading", name: heading, widget: string }
+          - { label: "Intro", name: intro, widget: text }
+          - label: "Products (fixed: 4)"
+            name: items
+            widget: list
+            allow_add: false
+            allow_remove: false
+            allow_reorder: false
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "Name", name: name, widget: string }
+              - { label: "Category", name: category, widget: string }
+              - { label: "Description (products section)", name: description, widget: text }
+              - { label: "Link label", name: link, widget: string }
+              - { label: "Website address", name: url, widget: string }
+              - { label: "One-line summary (Products menu)", name: menu_line, widget: string }
+
+      - label: "7 · About"
+        name: about
+        file: content/about.json
+        fields:
+          - { label: "Small label", name: eyebrow, widget: string }
+          - { label: "Heading", name: heading, widget: text, hint: "Press Enter to choose the line break." }
+          - { label: "Intro", name: intro, widget: text }
+          - label: "Points with icons (fixed: 3)"
+            name: points
+            widget: list
+            allow_add: false
+            allow_remove: false
+            allow_reorder: false
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Title", name: title, widget: string }
+              - { label: "Text", name: text, widget: string }
+          - label: "Figures (fixed: 3 — the third is hidden until confirmed)"
+            name: figures
+            widget: list
+            allow_add: false
+            allow_remove: false
+            allow_reorder: false
+            summary: "{{fields.value}} {{fields.label}}"
+            fields:
+              - { label: "Figure", name: value, widget: string, hint: "Start with the number, e.g. 10+ or 250. The number counts up on the page." }
+              - { label: "Label", name: label, widget: string }
+          - { label: "Line next to the figures", name: trust_line, widget: string }
+
+      - label: "8 · Engagements (also drives the Engagements menu)"
+        name: engagements
+        file: content/engagements.json
+        fields:
+          - { label: "Small label", name: eyebrow, widget: string }
+          - { label: "Heading", name: heading, widget: string }
+          - { label: "Intro", name: intro, widget: text }
+          - label: "Engagements (fixed: 6)"
+            name: items
+            widget: list
+            allow_add: false
+            allow_remove: false
+            allow_reorder: false
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "Question on the card", name: question, widget: string }
+              - { label: "Engagement name", name: name, widget: string }
+              - { label: "Timeline step", name: step, widget: string }
+              - { label: "Timeline description", name: step_text, widget: string }
+          - { label: "Timeline — left end", name: ladder_start, widget: string }
+          - { label: "Timeline — right end", name: ladder_end, widget: string }
+
+      - label: "9 · Try it"
+        name: tryit
+        file: content/tryit.json
+        fields:
+          - { label: "Small label", name: eyebrow, widget: string }
+          - { label: "Heading", name: heading, widget: string }
+          - { label: "Intro", name: intro, widget: string }
+          - { label: "Label — left column", name: today_label, widget: string }
+          - { label: "Label — right column", name: after_label, widget: string }
+          - { label: "Label before the first step", name: first_step_label, widget: string }
+          - { label: "Button label", name: button, widget: string }
+          - label: "Tasks (fixed: 6)"
+            name: scenarios
+            widget: list
+            allow_add: false
+            allow_remove: false
+            allow_reorder: false
+            summary: "{{fields.label}}"
+            fields:
+              - { label: "Task name (tile)", name: label, widget: string }
+              - { label: "Type of work (tag)", name: tag, widget: string }
+              - { label: "Today — steps", name: before, widget: list, field: { label: Step, name: step, widget: string }, hint: "Three steps work best." }
+              - { label: "With QOL Works — steps", name: after, widget: list, field: { label: Step, name: step, widget: string }, hint: "Three steps work best." }
+              - { label: "First step", name: first_step, widget: string }
+
+      - label: "10 · Contact"
+        name: contact
+        file: content/contact.json
+        fields:
+          - { label: "Small label", name: eyebrow, widget: string }
+          - { label: "Heading", name: heading, widget: text, hint: "Press Enter to choose the line break." }
+          - { label: "Intro", name: intro, widget: text }
+          - label: "Promises with icons (fixed: 3)"
+            name: points
+            widget: list
+            allow_add: false
+            allow_remove: false
+            allow_reorder: false
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Title", name: title, widget: string }
+              - { label: "Text", name: text, widget: string }
+          - { label: "Caption on the photo", name: photo_caption, widget: string }
+          - { label: "Form title", name: form_title, widget: string }
+          - { label: "Label for the message box", name: problem_label, widget: string }
+          - { label: "Form button label", name: submit_button, widget: string }
+          - { label: "Label above the questions", name: expect_label, widget: string }
+          - label: "What to expect"
+            name: expect
+            widget: list
+            summary: "{{fields.question}}"
+            fields:
+              - { label: "Question", name: question, widget: string }
+              - { label: "Answer", name: answer, widget: text }
+          - { label: "Label above email and office", name: reach_label, widget: string }
+          - { label: "Email address (also in the footer)", name: email, widget: string }
+          - { label: "Office (hidden until confirmed)", name: office, widget: string }
+
+      - label: "11 · FAQ"
+        name: faq
+        file: content/faq.json
+        fields:
+          - { label: "Small label", name: eyebrow, widget: string }
+          - { label: "Heading", name: heading, widget: string }
+          - { label: "Intro", name: intro, widget: text }
+          - { label: "Box — title", name: ask_title, widget: string }
+          - { label: "Box — text", name: ask_text, widget: string }
+          - { label: "Box — button label", name: ask_button, widget: string }
+          - label: "Questions"
+            name: questions
+            widget: list
+            summary: "{{fields.question}}"
+            fields:
+              - { label: "Question", name: question, widget: string }
+              - { label: "Answer", name: answer, widget: text }
+
+      - label: "12 · Footer"
+        name: footer
+        file: content/footer.json
+        fields:
+          - { label: "Heading", name: heading, widget: text, hint: "Press Enter to choose the line break. A coral full stop is added after it." }
+          - { label: "Text", name: text, widget: text }
+          - { label: "Industries column — title", name: industries_label, widget: string }
+          - label: "Industries column — links"
+            name: industries
+            widget: list
+            summary: "{{fields.label}}"
+            fields:
+              - { label: "Label", name: label, widget: string }
+              - { label: "Link", name: link, widget: string, hint: "#what, #card-healthcare, … or a full web address." }
+          - { label: "Get in touch — small label", name: touch_label, widget: string }
+          - { label: "Get in touch — heading", name: touch_heading, widget: string, hint: "A coral full stop is added after it." }
+          - { label: "Note under the email", name: email_note, widget: string }
+          - { label: "Button area — heading", name: cta_heading, widget: string }
+          - { label: "Button area — text", name: cta_text, widget: string }
+          - { label: "Copyright line", name: copyright, widget: string }

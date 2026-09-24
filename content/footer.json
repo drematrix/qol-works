@@ -1,0 +1,37 @@
+{
+  "heading": "Software engineering\nfor operational progress",
+  "text": "QOL Works helps organizations modernize, integrate, and automate the systems that power their operations — so people can focus on what moves the mission forward.",
+  "industries": [
+    {
+      "label": "Healthcare",
+      "link": "#card-healthcare"
+    },
+    {
+      "label": "Warehousing & Logistics",
+      "link": "#card-warehousing"
+    },
+    {
+      "label": "Cybersecurity",
+      "link": "#card-cyber"
+    },
+    {
+      "label": "B2B & Professional Services",
+      "link": "#card-b2b"
+    },
+    {
+      "label": "Manufacturing",
+      "link": "#what"
+    },
+    {
+      "label": "Hospitality",
+      "link": "#what"
+    }
+  ],
+  "industries_label": "Industries",
+  "touch_label": "Get in touch",
+  "touch_heading": "Let’s build what’s next",
+  "email_note": "Tell us what’s slowing your team down.",
+  "cta_heading": "Ready when you are",
+  "cta_text": "Talk with our team",
+  "copyright": "© 2026 QOL Works. All rights reserved. Formerly WebContentor."
+}

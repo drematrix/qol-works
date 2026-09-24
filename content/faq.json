@@ -1,0 +1,34 @@
+{
+  "eyebrow": "Questions",
+  "heading": "Things people usually want to know.",
+  "intro": "Straight answers on how we work, what to expect, and where QOL Works fits in.",
+  "ask_title": "Didn’t find your question?",
+  "ask_text": "Ask us directly — a short note is enough.",
+  "ask_button": "Send us a note",
+  "questions": [
+    {
+      "question": "Do we have to replace our existing systems?",
+      "answer": "Almost never. We typically build alongside your ERP, CRM, POS, WMS or healthcare platform and move information between them. Replacement is the last option we recommend, not the first."
+    },
+    {
+      "question": "How small can a first project be?",
+      "answer": "We can start small. Many customers begin with a focused use case or single location to prove value quickly, then expand from there."
+    },
+    {
+      "question": "What do you need from us to start?",
+      "answer": "A clear goal, access to the right stakeholders, and a small working group. We’ll help define the scope and handle the rest."
+    },
+    {
+      "question": "Do you work with our existing IT team or replace them?",
+      "answer": "We work with your team, not around them. Our role is to complement your internal IT and bring specialized expertise where it’s needed."
+    },
+    {
+      "question": "Where does AI actually come in?",
+      "answer": "AI is used where it creates real value — like automating manual work, surfacing insights from your data, and improving decisions. It’s practical, not experimental."
+    },
+    {
+      "question": "What happens after the first project ships?",
+      "answer": "We measure impact, refine what’s working, and scale to additional teams, locations or use cases. Our goal is a long-term partnership, not a one-off project."
+    }
+  ]
+}

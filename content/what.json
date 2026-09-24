@@ -1,0 +1,63 @@
+{
+  "eyebrow": "What we do",
+  "heading": "Four ways we make work better.",
+  "intro": "Different problems, one approach: keep what works, connect what doesn’t, and build only what is missing.",
+  "includes_label": "Includes",
+  "groups": [
+    {
+      "title": "AI & Automation",
+      "card_title": "AI &\nAutomation",
+      "card_text": "Turn repetitive, rules-heavy processes into connected workflows — and use AI where it solves a real problem, not because it is available.",
+      "items": [
+        "Workflow automation",
+        "Document processing & OCR",
+        "Approval and exception workflows",
+        "AI agents and assistants",
+        "LLM application development",
+        "Intelligent data extraction"
+      ]
+    },
+    {
+      "title": "Connected Systems",
+      "card_title": "Connected\nSystems",
+      "card_text": "Integrations and APIs that let your ERP, CRM, POS and warehouse platform work as one — without replacing any of them.",
+      "items": [
+        "Systems integration",
+        "API design and development",
+        "ERP integration",
+        "CRM integration",
+        "WMS and warehouse systems",
+        "EHR and healthcare systems",
+        "Middleware and data sync",
+        "EDI"
+      ]
+    },
+    {
+      "title": "Data & Reporting",
+      "card_title": "Data &\nReporting",
+      "card_text": "Reporting that assembles itself, so every team is looking at the same figure at the same time — and nobody rebuilds it in a spreadsheet.",
+      "items": [
+        "Operational dashboards",
+        "Reporting automation",
+        "Data pipelines",
+        "BI implementation",
+        "Data migration"
+      ]
+    },
+    {
+      "title": "Modernize & Build",
+      "card_title": "Modernize\n& Build",
+      "card_text": "Ageing applications upgraded incrementally, and focused software built for the gaps your packaged platforms leave behind.",
+      "items": [
+        "Legacy application modernization",
+        "Cloud migration",
+        "Custom web applications",
+        "Mobile applications",
+        "Customer and partner portals",
+        "QA and test automation",
+        "Application maintenance",
+        "Team augmentation"
+      ]
+    }
+  ]
+}
