@@ -1,20 +1,19 @@
 {
-  "eyebrow": "Automate + Integrate + Modernize",
-  "headline_line1": "Keep your systems.",
-  "headline_line2": "Lose the",
-  "headline_highlight": "busywork",
-  "headline_end": ".",
   "subheading": "Most transformation projects replace software that was working fine. We automate the manual work between the systems you already run — without a rebuild.",
-  "secondary_button": "See what we’d automate",
-  "impact_label": "Real impact",
   "impact_heading": "Work works better when the systems do.",
+  "headline_highlight": "busywork",
+  "eyebrow": "Automate + Integrate + Modernize",
+  "headline_end": ".",
+  "industries_label": "Built for what matters most",
+  "headline_line1": "Systems for Enterprises",
+  "headline_line2": "Lose the",
+  "impact_label": "Real impact",
   "impact_points": [
     "Less manual re-entry.",
     "One version of the number.",
     "Reporting that arrives on its own.",
     "Systems that keep up with you."
   ],
-  "industries_label": "Built for what matters most",
   "industries": [
     {
       "name": "Healthcare",
@@ -40,5 +39,6 @@
       "systems": "CRM · Finance · Service desk",
       "image_alt": "A team walking through a workflow on a meeting-room screen"
     }
-  ]
+  ],
+  "secondary_button": "See what we’d automate"
 }
