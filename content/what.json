@@ -1,13 +1,13 @@
 {
   "eyebrow": "What we do",
   "heading": "Four ways we make work better.",
-  "intro": "Different problems, one approach: keep what works, connect what doesn’t, and build only what is missing.",
+  "intro": "We deliver production-grade automation and agents that plug into what you already run; so value shows up in weeks, not after a multi-year rewrite.",
   "includes_label": "Includes",
   "groups": [
     {
       "title": "AI & Automation",
       "card_title": "AI &\nAutomation",
-      "card_text": "Turn repetitive, rules-heavy processes into connected workflows — and use AI where it solves a real problem, not because it is available.",
+      "card_text": "Workflow automation, document/OCR processing, approval & exception handling, AI agents & assistants, LLM applications, intelligent extraction.",
       "items": [
         "Workflow automation",
         "Document processing & OCR",
@@ -20,7 +20,7 @@
     {
       "title": "Connected Systems",
       "card_title": "Connected\nSystems",
-      "card_text": "Integrations and APIs that let your ERP, CRM, POS and warehouse platform work as one — without replacing any of them.",
+      "card_text": "Systems integration, API design, ERP/CRM/WMS/EHR integration, middleware, data sync, EDI.",
       "items": [
         "Systems integration",
         "API design and development",
@@ -35,7 +35,7 @@
     {
       "title": "Data & Reporting",
       "card_title": "Data &\nReporting",
-      "card_text": "Reporting that assembles itself, so every team is looking at the same figure at the same time — and nobody rebuilds it in a spreadsheet.",
+      "card_text": "Operational dashboards, reporting automation, data pipelines, BI, migration.",
       "items": [
         "Operational dashboards",
         "Reporting automation",
@@ -47,7 +47,7 @@
     {
       "title": "Modernize & Build",
       "card_title": "Modernize\n& Build",
-      "card_text": "Ageing applications upgraded incrementally, and focused software built for the gaps your packaged platforms leave behind.",
+      "card_text": "Legacy modernization, cloud migration, custom web/mobile apps, portals, QA/test automation, team augmentation, application maintenance.",
       "items": [
         "Legacy application modernization",
         "Cloud migration",
