@@ -1,7 +1,7 @@
 {
   "eyebrow": "Engagements",
   "heading": "Where should we start?",
-  "intro": "No matter where you are on your journey, we’ll meet you there — and help you move forward with clarity and momentum.",
+  "intro": "No matter where you are on your journey, we’ll meet you there — and help you move forward with clarity and momentum. Start as small as you need. Every engagement is designed to deliver visible progress and a clear next step",
   "items": [
     {
       "question": "Not sure where to start?",
@@ -29,7 +29,7 @@
     },
     {
       "question": "We want to test AI on a real problem.",
-      "name": "Practical AI Pilot",
+      "name": "Practical AI / Agent Pilot",
       "step": "Apply AI",
       "step_text": "Solve a real business problem"
     },
