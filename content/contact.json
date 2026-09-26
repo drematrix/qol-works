@@ -1,7 +1,5 @@
 {
-  "eyebrow": "Contact",
   "heading": "Let’s talk about\nwhat should work better.",
-  "intro": "Tell us about the process, system or operational problem you’re trying to improve. We’ll listen, ask a few questions, and explore how we can help.",
   "points": [
     {
       "text": "Start with the problem, not your stack.",
@@ -16,11 +14,11 @@
       "title": "We will tell you honestly if we’re not the right fit."
     }
   ],
-  "photo_caption": "A real person reads every note",
-  "form_title": "Send us a note",
-  "problem_label": "What’s the problem you’re trying to solve?",
-  "submit_button": "Book a conversation",
+  "reach_label": "Other ways to reach us",
+  "eyebrow": "Contact",
+  "intro": "Tell us the systems you run and the busywork that hurts most.",
   "expect_label": "What to expect",
+  "problem_label": "What’s the problem you’re trying to solve?",
   "expect": [
     {
       "question": "What happens after I submit this form?",
@@ -35,7 +33,9 @@
       "answer": "No. A description of the process that’s slowing you down is enough, and access to someone who does it every day."
     }
   ],
-  "reach_label": "Other ways to reach us",
+  "photo_caption": "A real person reads every note",
+  "submit_button": "Book a conversation",
+  "office": "City, State",
   "email": "hello@qolworks.com",
-  "office": "City, State"
+  "form_title": "Send us a note"
 }
