@@ -26,7 +26,9 @@ function loadContent() {
 //  {{#each path}}…{{/each}}   repeat for every item; inside: {{.}} {{field}} {{@num}} {{@index}}
 //  {{?first a|b}}      "a" on the first item of the innermost loop, otherwise "b" (text after "?first " is used verbatim)
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-const escText = (s) => esc(s).replace(/\r?\n/g, "<br>");
+// The space before <br> is invisible where the break renders, but keeps words apart
+// on small screens where CSS collapses the break (e.g. the About/Contact titles).
+const escText = (s) => esc(s).replace(/\r?\n/g, " <br>");
 const escAttr = (s) => esc(s).replace(/"/g, "&quot;").replace(/\r?\n/g, " ");
 
 function lookup(p, stack) {

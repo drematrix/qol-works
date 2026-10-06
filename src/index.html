@@ -650,8 +650,7 @@ html:not(.show-drafts) .pchip,html:not(.show-drafts) .todo,html:not(.show-drafts
 .eng:hover .eng__name svg,.eng.is-hot .eng__name svg{transform:translateX(4px)}
 .eng:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 @media (max-width:1100px){.engs{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media (max-width:640px){.engs{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .eng__name{font-size:.6rem;letter-spacing:.12em}}
+@media (max-width:640px){.engs{grid-template-columns:minmax(0,1fr)}}
 
 /* the commitment ladder */
 .ladder{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:start;
@@ -1136,6 +1135,90 @@ html{scroll-behavior:smooth}
   *{animation:none!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
   html.js-anim .reveal{opacity:1!important;transform:none!important}
 }
+/* ================= phone refinements (scoped to small screens / touch; desktop unchanged) ================= */
+
+/* mobile nav: dim the page and lock scroll while the menu is open */
+.nav-scrim{display:none}
+@media (max-width:1060px){
+  .nav-scrim{display:block;position:fixed;inset:0;z-index:55;background:rgba(10,18,32,.44);
+    opacity:0;pointer-events:none;transition:opacity .3s ease}
+  html.nav-open .nav-scrim{opacity:1;pointer-events:auto}
+  html.nav-open,html.nav-open body{overflow:hidden}
+  #navpanel{max-height:calc(100dvh - var(--head-h) - 20px);overflow:auto;overscroll-behavior:contain}
+}
+
+/* hero: the four stacked cards carry the industry labels, so the tab row is redundant,
+   and the auto-rotating highlight wash reads as flicker on a stacked list */
+@media (max-width:560px){
+  .hero .indtabs{display:none}
+  .hero .indcard{min-height:216px}
+  .indcard.is-on::before{display:none}
+  .indcard.is-on img{filter:saturate(.92) brightness(.86)}
+}
+
+/* our work: no carousel on phones — all six cases stack as compact cards, nothing behind clicks */
+@media (max-width:640px){
+  .wnav,.wtabs{display:none}
+  .wstage{display:block;min-height:0;background:none;border:0;border-radius:0;box-shadow:none;overflow:visible}
+  .wcase{grid-area:auto;grid-template-columns:minmax(0,1fr);opacity:1;visibility:visible;transition:none;
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;box-shadow:var(--shadow-card)}
+  .wcase + .wcase{margin-top:14px}
+  .wcase__viz{display:none}
+  .wcase__body{padding:20px 20px 18px}
+  .wcase__side{border-left:0;border-top:1px solid var(--accent-line);padding:14px 20px}
+}
+
+/* engagements: single-column rows — illustration beside the text, so titles stop wrapping to three lines */
+@media (max-width:640px){
+  .engs{gap:12px}
+  .eng{display:grid;grid-template-columns:104px minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto}
+  .eng__art{grid-row:1/3;aspect-ratio:auto;height:100%;
+    -webkit-mask-image:none;mask-image:none}
+  .eng__art img{max-width:none;height:100%;
+    -webkit-mask-image:linear-gradient(90deg,#000 0,#000 78%,transparent 100%);
+            mask-image:linear-gradient(90deg,#000 0,#000 78%,transparent 100%)}
+  .eng__q{padding:14px 16px 10px;font-size:1.04rem}
+  .eng__name{min-height:0;padding:10px 16px 14px;font-size:.64rem;letter-spacing:.11em}
+}
+
+/* contact: keep the decorative arc inside the edge */
+@media (max-width:760px){.ct-arc{right:4px}}
+
+/* faq: questions first, the "didn't find your question?" card after them */
+@media (max-width:900px){
+  .fq{display:flex;flex-direction:column}
+  .fq__head,.fq__head-in{display:contents}
+  .fq__head-in > .eyebrow{order:0;margin-top:clamp(56px,10vw,80px)}
+  .fq__title{order:1;margin-top:14px}
+  .fq__lede{order:2;margin-top:12px}
+  .fq__list{order:3;margin-top:4px;padding-bottom:28px}
+  .fq__ask{order:4;margin-bottom:clamp(56px,10vw,80px)}
+}
+
+/* footer: the CTA pill goes full width instead of overflowing, legal links get taller tap areas */
+@media (max-width:760px){
+  .foot-go{flex-direction:column;align-items:stretch;gap:14px}
+  .foot-go .btn{width:100%;justify-content:center;white-space:normal;text-align:center;min-width:0}
+  .foot-legal a{display:inline-block;padding-block:8px}
+}
+
+/* small text links reach a comfortable tap height on phones */
+@media (max-width:760px){
+  .wcase__go{padding-block:10px;margin-block:-4px}
+  .pd__go{padding-block:9px}
+}
+
+/* products: the mock window fits inside the card instead of being cut mid-element */
+@media (max-width:560px){
+  .pd__art{padding:18px 16px 0}
+  .pd__art .win{border-right:1px solid #E2E7EB;border-radius:12px 12px 0 0}
+}
+@media (max-width:380px){
+  .pd__art .win__side{display:none}
+  .pd__art .win__side + *{border-left:0}
+  .foot-cols{grid-template-columns:minmax(0,1fr)}
+  .foot-col,.foot-col:nth-child(2n){padding-inline:0}
+}
 </style>
 </head>
 <body>
@@ -1239,6 +1322,7 @@ html{scroll-behavior:smooth}
   </div>
   <div class="head__prog" id="prog" aria-hidden="true"></div>
 </header>
+<div class="nav-scrim" id="navScrim" aria-hidden="true"></div>
 
 <!-- ============================== HERO ==============================
      IMAGE MAP — to swap any picture, drop a new file in with the SAME name.
@@ -2329,10 +2413,17 @@ html{scroll-behavior:smooth}
   var toggle = document.getElementById("navToggle");
   var panel = document.getElementById("navpanel");
   var mq = window.matchMedia("(max-width:1060px)");
+  var scrim = document.getElementById("navScrim");
   function syncNav(){
     if (mq.matches){ panel.hidden = toggle.getAttribute("aria-expanded") !== "true"; }
     else { panel.hidden = false; toggle.setAttribute("aria-expanded","false"); }
+    document.documentElement.classList.toggle("nav-open", mq.matches && !panel.hidden);
   }
+  if (scrim) scrim.addEventListener("click", function(){
+    toggle.setAttribute("aria-expanded","false");
+    toggle.setAttribute("aria-label","Open menu");
+    syncNav();
+  });
   toggle.addEventListener("click", function(){
     var open = toggle.getAttribute("aria-expanded") === "true";
     toggle.setAttribute("aria-expanded", String(!open));
