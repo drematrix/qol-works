@@ -61,6 +61,7 @@
   --h2:clamp(2rem,3.4vw,2.85rem);
   --arc:clamp(56px,9vw,120px);
   --head-h:84px;
+  --vz:1; /* page zoom factor on very wide monitors (see "large monitors" block); viewport-height maths divide by it */
   --ease:cubic-bezier(.22,.7,.28,1);
 }
 
@@ -374,7 +375,7 @@ html.js-anim .sect.ink#read{transform:translateY(var(--riseY,0px));will-change:t
 
 /* ---------- hero fits one screen on desktop: copy, tabs and photos all above the fold ---------- */
 @media (min-width:1021px) and (min-height:560px){
-  .hero{height:calc(100svh - var(--head-h));min-height:540px;display:flex;flex-direction:column;
+  .hero{height:calc(100svh / var(--vz) - var(--head-h));min-height:540px;display:flex;flex-direction:column;
     padding-top:clamp(22px,5vh,72px)}
   .hero__top{flex:none;padding-bottom:clamp(16px,3.2vh,44px)}
   .hero__copy{gap:clamp(12px,2.2vh,22px)}
@@ -711,7 +712,7 @@ html.js-anim .ladder.in li:nth-child(6) .ladder__dot{animation-delay:.95s}
 .pd--w{--pc:#A8741F;--pbg:linear-gradient(160deg,#FBF1E2 0%,#FFFAF3 70%)}
 .pd:hover{translate:0 -5px;box-shadow:var(--shadow-lift)}
 .pd__art{display:flex;align-items:flex-start;aspect-ratio:16/9;background:var(--pbg);overflow:hidden;border-bottom:1px solid var(--line-soft);padding:clamp(22px,2.6vw,32px) 0 0 clamp(22px,2.6vw,32px)}
-.pd__art .win{flex:1;min-width:0;transition:transform .8s var(--ease)}
+.pd__art .win{flex:1;min-width:0;align-self:stretch;transition:transform .8s var(--ease)}
 .pd:hover .pd__art .win{transform:translateY(-6px)}
 @keyframes pdBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
 .pd__body{flex:1;display:flex;flex-direction:column;gap:9px;padding:clamp(20px,2.2vw,28px) clamp(20px,2.3vw,30px) clamp(22px,2.4vw,30px)}
@@ -1219,6 +1220,22 @@ html{scroll-behavior:smooth}
   .foot-cols{grid-template-columns:minmax(0,1fr)}
   .foot-col,.foot-col:nth-child(2n){padding-inline:0}
 }
+
+/* ================= large monitors: scale the approved 1440–1920 composition so it fills the screen =================
+   Every step keeps the effective layout width inside 1830–2070px (the range the desktop design was tuned for),
+   so proportions, margins and type measure stay as designed — just larger. --vz feeds the hero's viewport-height
+   maths, because viewport units are scaled by zoom too. Media queries always evaluate against the real viewport. */
+@media (min-width:2200px){:root{zoom:1.2;--vz:1.2}}
+@media (min-width:2500px){:root{zoom:1.35;--vz:1.35}}
+@media (min-width:2900px){:root{zoom:1.55;--vz:1.55}}
+@media (min-width:3300px){:root{zoom:1.8;--vz:1.8}}
+@media (min-width:3700px){:root{zoom:2;--vz:2}}
+/* ultrawide (21:9 and wider) monitors are wide but not tall: one step gentler so the one-screen hero keeps room for its photo cards */
+@media (min-width:2200px) and (min-aspect-ratio:2/1){:root{zoom:1.1;--vz:1.1}}
+@media (min-width:2500px) and (min-aspect-ratio:2/1){:root{zoom:1.2;--vz:1.2}}
+@media (min-width:2900px) and (min-aspect-ratio:2/1){:root{zoom:1.4;--vz:1.4}}
+@media (min-width:3300px) and (min-aspect-ratio:2/1){:root{zoom:1.55;--vz:1.55}}
+@media (min-width:3700px) and (min-aspect-ratio:2/1){:root{zoom:1.7;--vz:1.7}}
 </style>
 </head>
 <body>
