@@ -19,25 +19,25 @@
       "name": "Healthcare",
       "text": "Connected records.\nAgents that handle the hand-offs",
       "systems": "EHR · Scheduling · Patient portal · Clinical Workflows",
-      "image_alt": "Real clinical or admin workflow scenes (tablet + EHR screens, care team reviewing connected data). Subtle overlay or inset of a clean dashboard/agent flow."
+      "image_alt": "A nurse checking in with a smiling patient on a bright hospital ward"
     },
     {
       "name": "Warehousing",
       "text": "Orders that move themselves.\nSystems that stay in sync.",
       "systems": "WMS · ERP · Carrier portals · Inventory",
-      "image_alt": "Actual warehouse floor + systems (handhelds, conveyor, WMS screens) preferably with robot/automation element"
+      "image_alt": "A warehouse worker scanning a parcel on a conveyor beside an order-management screen"
     },
     {
       "name": "Cybersecurity",
       "text": "Platforms that modernize without stopping.\nReleases that keep shipping.",
       "systems": "Product platform · CMS · Cloud · Secure Workflows",
-      "image_alt": "Modern product/engineering environment"
+      "image_alt": "An engineering team reviewing a secure release workflow together on a tablet"
     },
     {
       "name": "B2B Services",
       "text": "Systems that talk.\nTeams that stay aligned.",
       "systems": "CRM · Finance · Service desk · Operations",
-      "image_alt": "Teams collaborating around CRM/finance screens or process board"
+      "image_alt": "A professional looking over connected CRM, finance, service desk and operations dashboards"
     }
   ],
   "secondary_button": "See what we'd automate"
