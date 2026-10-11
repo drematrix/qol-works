@@ -371,6 +371,12 @@ html.js-anim .sect.ink#read{transform:translateY(var(--riseY,0px));will-change:t
   bottom:clamp(14px,1.6vw,22px);display:flex;flex-direction:column;gap:5px}
 .indcard__body h3{color:#fff;font-size:clamp(1.05rem,1.5vw,1.3rem);font-weight:600;letter-spacing:-.018em;text-shadow:0 1px 12px rgba(0,0,0,.35)}
 .indcard__body p{color:rgba(255,255,255,.82);font-size:.88rem;line-height:1.4}
+/* sub-text: folded away until the card is hovered (or focused), then it slides up under the heading */
+.indcard__txt{display:grid;grid-template-rows:0fr;opacity:0;transform:translateY(10px);
+  transition:grid-template-rows .45s var(--ease),opacity .3s ease,transform .45s var(--ease)}
+.indcard__txt > p{overflow:hidden;min-height:0;text-shadow:0 1px 10px rgba(0,0,0,.35)}
+.indcard:hover .indcard__txt,.indcard:focus-visible .indcard__txt{grid-template-rows:1fr;opacity:1;transform:none;
+  transition:grid-template-rows .45s var(--ease),opacity .4s ease .08s,transform .5s var(--ease) .04s}
 .indcard__go{position:absolute;z-index:3;right:clamp(14px,1.6vw,22px);bottom:clamp(14px,1.6vw,22px);
   width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.6);color:#fff;
   display:flex;align-items:center;justify-content:center;font-size:.9rem;
@@ -1397,25 +1403,25 @@ html{scroll-behavior:smooth}
     <a class="indcard is-on" id="card-healthcare" data-ind="healthcare" href="#what">
       <img src="assets/img/ind-healthcare.jpg" alt="{{attr hero.industries.0.image_alt}}" width="1200" height="961">
       <span class="indcard__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 6v12M6 12h12"/></svg></span>
-      <div class="indcard__body"><h3>{{hero.industries.0.name}}</h3></div>
+      <div class="indcard__body"><h3>{{hero.industries.0.name}}</h3><div class="indcard__txt"><p>{{hero.industries.0.text}}</p></div></div>
       <span class="indcard__go" aria-hidden="true">&#8594;</span>
     </a>
     <a class="indcard" id="card-warehousing" data-ind="warehousing" href="#what">
       <img src="assets/img/ind-warehousing.jpg" alt="{{attr hero.industries.1.image_alt}}" width="1200" height="961">
       <span class="indcard__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.8 21 7v10l-9 4.2L3 17V7z"/><path d="M3 7l9 4.2L21 7M12 11.2V21"/></svg></span>
-      <div class="indcard__body"><h3>{{hero.industries.1.name}}</h3></div>
+      <div class="indcard__body"><h3>{{hero.industries.1.name}}</h3><div class="indcard__txt"><p>{{hero.industries.1.text}}</p></div></div>
       <span class="indcard__go" aria-hidden="true">&#8594;</span>
     </a>
     <a class="indcard" id="card-cyber" data-ind="cyber" href="#what">
       <img src="assets/img/ind-technology.jpg" alt="{{attr hero.industries.2.image_alt}}" width="1200" height="961" loading="lazy">
       <span class="indcard__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.6 20 6v6c0 4.6-3.3 8.2-8 9.4C7.3 20.2 4 16.6 4 12V6z"/></svg></span>
-      <div class="indcard__body"><h3>{{hero.industries.2.name}}</h3></div>
+      <div class="indcard__body"><h3>{{hero.industries.2.name}}</h3><div class="indcard__txt"><p>{{hero.industries.2.text}}</p></div></div>
       <span class="indcard__go" aria-hidden="true">&#8594;</span>
     </a>
     <a class="indcard" id="card-b2b" data-ind="b2b" href="#what">
       <img src="assets/img/ind-b2b.jpg" alt="{{attr hero.industries.3.image_alt}}" width="1200" height="961" loading="lazy">
       <span class="indcard__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V5.5L13 3v18M13 21h7V10h-7"/><path d="M7 8h3M7 12h3M7 16h3M16 13h1.5M16 17h1.5"/></svg></span>
-      <div class="indcard__body"><h3>{{hero.industries.3.name}}</h3></div>
+      <div class="indcard__body"><h3>{{hero.industries.3.name}}</h3><div class="indcard__txt"><p>{{hero.industries.3.text}}</p></div></div>
       <span class="indcard__go" aria-hidden="true">&#8594;</span>
     </a>
   </div>
