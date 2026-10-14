@@ -336,6 +336,36 @@ html.js-anim .inds .indcard:nth-child(4){animation-delay:.66s}
 
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 
+/* hero sides: a faint systems field (dot grid, traces, a synced card) fills the space beside the centred copy.
+   It draws in once, sends a few pulses, then rests; masks keep it away from the text. Desktop only. */
+.hero__art{position:absolute;top:0;height:100%;width:min(33vw,500px);overflow:visible;
+  -webkit-mask-image:radial-gradient(115% 62% at 0% 50%,#000 32%,transparent 78%);mask-image:radial-gradient(115% 62% at 0% 50%,#000 32%,transparent 78%)}
+.hero__art--l{left:0;--d:0s}
+.hero__art--r{right:0;transform:scale(-1,-1);--d:.45s}
+@media (max-width:1023px){.hero__art{display:none}}
+.ha__t{fill:none;stroke:#BCCDEE;stroke-width:1.3;stroke-linecap:round;stroke-dasharray:1}
+.ha__p{fill:none;stroke:var(--accent);stroke-width:2.2;stroke-linecap:round;stroke-dasharray:.07 1.2;opacity:0}
+.ha__n,.ha__n--hot{fill:#fff;stroke:#8EAEEA;stroke-width:1.4;transform-box:fill-box;transform-origin:center}
+.ha__n--hot{stroke:var(--hot)}
+.ha__h{fill:var(--accent);opacity:0;transform-box:fill-box;transform-origin:center}
+.ha__card-bg{fill:#fff;stroke:#DCE4EE}
+.ha__card{filter:drop-shadow(0 8px 14px rgba(24,36,54,.08))}
+@keyframes haDraw{from{stroke-dashoffset:1}}
+@keyframes haPop{from{opacity:0;transform:scale(.3)}}
+@keyframes haCard{from{opacity:0;transform:translateY(8px)}}
+@keyframes haPulse{0%{stroke-dashoffset:.07;opacity:0}12%{opacity:.85}88%{opacity:.85}100%{stroke-dashoffset:-1;opacity:0}}
+@keyframes haHalo{0%{opacity:.26;transform:scale(1)}100%{opacity:0;transform:scale(3.4)}}
+html.js-anim .ha__t{animation:haDraw 1.8s var(--ease) calc(var(--d) + .5s + var(--i) * .15s) backwards}
+html.js-anim .ha__n,html.js-anim .ha__n--hot{animation:haPop .5s var(--ease) calc(var(--d) + 1.6s + var(--i) * .15s) backwards}
+html.js-anim .ha__card{animation:haCard .8s var(--ease) calc(var(--d) + 1.3s) backwards}
+html.js-anim .ha__p{animation:haPulse 2.6s ease-in-out calc(var(--d) + 2.3s + var(--i) * .9s) 3 both}
+html.js-anim .ha__h{animation:haHalo 2.8s ease-out calc(var(--d) + 2.5s + var(--i) * 1.1s) 3 both}
+
+/* industries: contained to the page width with rounded cards, so the photos line up with the header and copy */
+.inds{max-width:1760px;margin-inline:auto;padding:0 var(--gutter) clamp(44px,4.6vw,72px)}
+.inds .indcards{gap:clamp(10px,1vw,16px)}
+.inds .indcard{border-radius:var(--r-lg)}
+
 /* industries: their own band under the hero, label + four full-bleed photos */
 .inds{position:relative;scroll-margin-top:calc(var(--head-h) + 10px)}
 
@@ -1350,6 +1380,8 @@ html{scroll-behavior:smooth}
 <section class="hero">
   <div class="hero__bg" aria-hidden="true">
     <div class="hero__wash"></div>
+    <svg class="hero__art hero__art--l" viewBox="0 0 460 440" preserveAspectRatio="xMinYMid meet" aria-hidden="true" focusable="false"><defs><pattern id="haDotsL" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.1" fill="#C3CDDA"/></pattern></defs><rect class="ha__grid" width="460" height="440" fill="url(#haDotsL)"/><path class="ha__t" style="--i:0" pathLength="1" d="M0 96 H118 Q130 96 130 108 V164 Q130 176 142 176 H262"/><path class="ha__t" style="--i:1" pathLength="1" d="M70 0 V40 Q70 52 82 52 H196"/><path class="ha__t" style="--i:2" pathLength="1" d="M0 268 H70 Q82 268 82 256 V232 Q82 220 94 220 H160"/><path class="ha__t" style="--i:3" pathLength="1" d="M0 352 H150 Q162 352 162 340 V302 Q162 290 174 290 H300"/><path class="ha__t" style="--i:4" pathLength="1" d="M40 440 V412 Q40 400 52 400 H118"/><path class="ha__p" style="--i:0" pathLength="1" d="M0 96 H118 Q130 96 130 108 V164 Q130 176 142 176 H262"/><path class="ha__p" style="--i:1" pathLength="1" d="M0 352 H150 Q162 352 162 340 V302 Q162 290 174 290 H300"/><path class="ha__p" style="--i:2" pathLength="1" d="M0 268 H70 Q82 268 82 256 V232 Q82 220 94 220 H160"/><circle class="ha__h" style="--i:0" cx="262" cy="176" r="5"/><circle class="ha__h" style="--i:1" cx="300" cy="290" r="5"/><circle class="ha__n" style="--i:0" cx="262" cy="176" r="4"/><circle class="ha__n" style="--i:1" cx="196" cy="52" r="4"/><circle class="ha__n ha__n--hot" style="--i:2" cx="160" cy="220" r="4"/><circle class="ha__n" style="--i:3" cx="300" cy="290" r="4"/><circle class="ha__n" style="--i:4" cx="118" cy="400" r="4"/><g class="ha__card"><rect class="ha__card-bg" x="190" y="230" width="112" height="46" rx="10"/><circle cx="207" cy="253" r="4" fill="#0E9A6A"/><rect x="219" y="245" width="62" height="5" rx="2.5" fill="#DCE4EE"/><rect x="219" y="256" width="40" height="5" rx="2.5" fill="#E9EEF4"/></g></svg>
+    <svg class="hero__art hero__art--r" viewBox="0 0 460 440" preserveAspectRatio="xMinYMid meet" aria-hidden="true" focusable="false"><defs><pattern id="haDotsR" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.1" fill="#C3CDDA"/></pattern></defs><rect class="ha__grid" width="460" height="440" fill="url(#haDotsR)"/><path class="ha__t" style="--i:0" pathLength="1" d="M0 96 H118 Q130 96 130 108 V164 Q130 176 142 176 H262"/><path class="ha__t" style="--i:1" pathLength="1" d="M70 0 V40 Q70 52 82 52 H196"/><path class="ha__t" style="--i:2" pathLength="1" d="M0 268 H70 Q82 268 82 256 V232 Q82 220 94 220 H160"/><path class="ha__t" style="--i:3" pathLength="1" d="M0 352 H150 Q162 352 162 340 V302 Q162 290 174 290 H300"/><path class="ha__t" style="--i:4" pathLength="1" d="M40 440 V412 Q40 400 52 400 H118"/><path class="ha__p" style="--i:0" pathLength="1" d="M0 96 H118 Q130 96 130 108 V164 Q130 176 142 176 H262"/><path class="ha__p" style="--i:1" pathLength="1" d="M0 352 H150 Q162 352 162 340 V302 Q162 290 174 290 H300"/><path class="ha__p" style="--i:2" pathLength="1" d="M0 268 H70 Q82 268 82 256 V232 Q82 220 94 220 H160"/><circle class="ha__h" style="--i:0" cx="262" cy="176" r="5"/><circle class="ha__h" style="--i:1" cx="300" cy="290" r="5"/><circle class="ha__n" style="--i:0" cx="262" cy="176" r="4"/><circle class="ha__n" style="--i:1" cx="196" cy="52" r="4"/><circle class="ha__n ha__n--hot" style="--i:2" cx="160" cy="220" r="4"/><circle class="ha__n" style="--i:3" cx="300" cy="290" r="4"/><circle class="ha__n" style="--i:4" cx="118" cy="400" r="4"/><g class="ha__card"><rect class="ha__card-bg" x="190" y="230" width="112" height="46" rx="10"/><circle cx="207" cy="253" r="4" fill="#0E9A6A"/><rect x="219" y="245" width="62" height="5" rx="2.5" fill="#DCE4EE"/><rect x="219" y="256" width="40" height="5" rx="2.5" fill="#E9EEF4"/></g></svg>
   </div>
 
   <div class="wrap hero__top">
