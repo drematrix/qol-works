@@ -337,7 +337,8 @@ html.js-anim .inds .indcard:nth-child(4){animation-delay:.66s}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 
 /* hero sides: a faint systems field (dot grid, traces, a synced card) fills the space beside the centred copy.
-   It draws in once, sends a few pulses, then rests; masks keep it away from the text. Desktop only. */
+   It draws in once, then keeps a slow, quiet rhythm of pulses (paused off screen and for reduced motion);
+   masks keep it away from the text. Desktop only. */
 .hero__art{position:absolute;top:0;height:100%;width:min(33vw,500px);overflow:visible;
   -webkit-mask-image:radial-gradient(115% 62% at 0% 50%,#000 32%,transparent 78%);mask-image:radial-gradient(115% 62% at 0% 50%,#000 32%,transparent 78%)}
 .hero__art--l{left:0;--d:0s}
@@ -353,13 +354,14 @@ html.js-anim .inds .indcard:nth-child(4){animation-delay:.66s}
 @keyframes haDraw{from{stroke-dashoffset:1}}
 @keyframes haPop{from{opacity:0;transform:scale(.3)}}
 @keyframes haCard{from{opacity:0;transform:translateY(8px)}}
-@keyframes haPulse{0%{stroke-dashoffset:.07;opacity:0}12%{opacity:.85}88%{opacity:.85}100%{stroke-dashoffset:-1;opacity:0}}
-@keyframes haHalo{0%{opacity:.26;transform:scale(1)}100%{opacity:0;transform:scale(3.4)}}
+@keyframes haPulse{0%{stroke-dashoffset:.07;opacity:0}4%{opacity:.85}31%{opacity:.85}35%,100%{stroke-dashoffset:-1;opacity:0}}
+@keyframes haHalo{0%{opacity:.26;transform:scale(1)}45%,100%{opacity:0;transform:scale(3.4)}}
 html.js-anim .ha__t{animation:haDraw 1.8s var(--ease) calc(var(--d) + .5s + var(--i) * .15s) backwards}
 html.js-anim .ha__n,html.js-anim .ha__n--hot{animation:haPop .5s var(--ease) calc(var(--d) + 1.6s + var(--i) * .15s) backwards}
 html.js-anim .ha__card{animation:haCard .8s var(--ease) calc(var(--d) + 1.3s) backwards}
-html.js-anim .ha__p{animation:haPulse 2.6s ease-in-out calc(var(--d) + 2.3s + var(--i) * .9s) 3 both}
-html.js-anim .ha__h{animation:haHalo 2.8s ease-out calc(var(--d) + 2.5s + var(--i) * 1.1s) 3 both}
+html.js-anim .ha__p{animation:haPulse 7.5s ease-in-out calc(var(--d) + 2.3s + var(--i) * 2.4s) infinite both}
+html.js-anim .ha__h{animation:haHalo 6.5s ease-out calc(var(--d) + 2.5s + var(--i) * 3.2s) infinite both}
+.hero.is-away .hero__art *{animation-play-state:paused}
 
 /* industries: contained to the page width with rounded cards, so the photos line up with the header and copy */
 .inds{max-width:1760px;margin-inline:auto;padding:0 var(--gutter) clamp(44px,4.6vw,72px)}
@@ -2516,6 +2518,13 @@ html{scroll-behavior:smooth}
       s.addEventListener("mouseenter", function(){ hot(i, true); });
       s.addEventListener("mouseleave", function(){ hot(i, false); });
     });
+  })();
+
+  /* ---------- hero side artwork: the slow pulse rhythm pauses while the hero is off screen ---------- */
+  (function(){
+    var hero = document.querySelector(".hero");
+    if (!hero || !document.documentElement.classList.contains("js-anim")) return;
+    new IntersectionObserver(function(es){ hero.classList.toggle("is-away", !es[0].isIntersecting); }, {threshold:0}).observe(hero);
   })();
 
   /* ---------- about: figures count up once, when the band arrives ---------- */
