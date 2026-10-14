@@ -303,13 +303,12 @@ html.js-anim .sect.ink#read{transform:translateY(var(--riseY,0px));will-change:t
   padding-top:16px;border-top:1px solid var(--line)}
 
 /* ---------- hero: headline left, one sentence + actions right; industries follow in their own band ---------- */
-.hero{position:relative;overflow:hidden;padding-block:clamp(48px,6vw,96px) 0}
-/* five elements: eyebrow + headline on the left, one sentence + two actions on the right, bottoms aligned */
-.hero__top{position:relative;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);
-  gap:clamp(30px,4.5vw,72px);align-items:end;padding-bottom:clamp(48px,5.6vw,84px)}
-@media (max-width:1020px){.hero__top{grid-template-columns:minmax(0,1fr);gap:24px}}
-.hero__aside{display:flex;flex-direction:column;gap:22px;padding-bottom:.35em}
-.hero__copy{display:flex;flex-direction:column;gap:22px;max-width:920px}
+.hero{position:relative;overflow:hidden;padding-block:clamp(44px,5.4vw,88px) 0}
+/* six elements: the copy stack on the left (eyebrow, headline, one sentence, two actions), the diagram on the right */
+.hero__top{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);
+  gap:clamp(36px,5vw,88px);align-items:center;padding-bottom:clamp(56px,6vw,96px)}
+@media (max-width:1020px){.hero__top{grid-template-columns:minmax(0,1fr);gap:clamp(36px,6vw,52px)}}
+.hero__copy{display:flex;flex-direction:column;align-items:flex-start;gap:24px;max-width:640px}
 .eyebrow--plus{color:var(--accent-mid)}
 .eyebrow--plus::before{background:var(--accent-mid)}
 .hero h1{font-size:clamp(2.25rem,calc(4.3vw / var(--vz)),6rem);line-height:1.04;letter-spacing:-.038em}
@@ -321,6 +320,78 @@ html.js-anim .sect.ink#read{transform:translateY(var(--riseY,0px));will-change:t
 @media (max-width:380px){.hero h1{font-size:1.75rem}}
 .hero__ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:4px}
 
+
+/* ---------- hero diagram: your systems stay, the re-keying between them goes ----------
+   Final state is the resting state, so no-JS and reduced motion see the connected picture.
+   With motion it tells one short story, then rests (about 5s):
+   systems appear -> grey dashed hand-offs (busywork) -> hub arrives, blue links draw -> one pulse each -> dots turn green */
+.hv{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);
+  box-shadow:0 1px 2px rgba(24,36,54,.05),0 30px 60px -40px rgba(24,36,54,.38);padding:clamp(14px,1.5vw,20px)}
+.hv__bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:2px 4px clamp(12px,1.3vw,16px)}
+.hv__k{font-family:var(--mono);font-size:.8125rem;letter-spacing:.12em;text-transform:uppercase;color:var(--body);white-space:nowrap}
+.hv__state{display:grid;justify-items:end}
+.hv__state b{grid-area:1/1;display:inline-flex;align-items:center;gap:8px;padding:5px 12px;border-radius:999px;white-space:nowrap;
+  font-family:var(--display);font-size:.8125rem;font-weight:500}
+.hv__state b::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.hv__s1{color:var(--body);background:var(--line-soft);opacity:0}
+.hv__s2{color:var(--accent-ink);background:var(--accent-soft);opacity:0}
+.hv__s3{color:var(--good-ink);background:var(--good-soft)}
+.hv__stage{position:relative;aspect-ratio:520/340;border-radius:var(--r-md);
+  background:radial-gradient(60% 70% at 50% 50%,#EAF1FE 0%,rgba(234,241,254,0) 70%),linear-gradient(160deg,#F5F7FB 0%,#FBFCFE 70%)}
+.hv__svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.hv__svg--tall{display:none}
+.hv__mess path{fill:none;stroke:#9AA6B4;stroke-width:1.4;stroke-dasharray:4 5;opacity:0}
+.hv__link{fill:none;stroke:var(--accent);stroke-width:1.8;stroke-linecap:round;stroke-dasharray:1;opacity:.85}
+.hv__pulse{fill:none;stroke:var(--accent);stroke-width:4.5;stroke-linecap:round;stroke-dasharray:.07 1.2;opacity:0}
+.hv__node{position:absolute;left:var(--x);top:var(--y);translate:-50% -50%;z-index:1;
+  display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:var(--r-sm);white-space:nowrap;
+  background:#fff;border:1px solid var(--line);box-shadow:0 8px 18px -14px rgba(24,36,54,.45);
+  font-family:var(--display);font-size:.9375rem;font-weight:600;letter-spacing:-.005em;color:var(--ink)}
+.hv__node i{width:8px;height:8px;border-radius:50%;background:var(--good);box-shadow:0 0 0 3px var(--good-soft);flex:none}
+.hv__hub{position:absolute;left:50%;top:50%;translate:-50% -50%;z-index:1;
+  display:flex;flex-direction:column;align-items:center;gap:1px;padding:14px 22px;border-radius:var(--r-md);white-space:nowrap;
+  background:linear-gradient(150deg,var(--accent) 0%,#3D86F0 100%);color:#fff;text-align:center;
+  box-shadow:0 0 0 6px rgba(11,87,224,.08),0 16px 32px -14px rgba(11,87,224,.6)}
+.hv__hub b{font-family:var(--display);font-size:1rem;font-weight:600;letter-spacing:-.01em}
+.hv__hub small{font-family:var(--display);font-size:.8125rem;opacity:.86}
+@media (max-width:1020px){.hero__viz{max-width:680px}}
+/* phones: the same diagram recomposed as rows (systems above and below the hub), labels stay 13px */
+@media (max-width:560px){
+  .hv__bar{padding-inline:2px}
+  .hv__k{letter-spacing:.06em}
+  .hv__stage{aspect-ratio:340/300}
+  .hv__svg--wide{display:none}
+  .hv__svg--tall{display:block}
+  .hv__node{left:var(--mx);top:var(--my);gap:6px;padding:7px 10px;font-size:.8125rem}
+  .hv__node i{width:7px;height:7px}
+  .hv__hub{padding:10px 16px}
+  .hv__hub b{font-size:.9375rem}
+}
+
+/* motion: one entrance, one story, then rest (gated on js-anim; reduced motion never gets it) */
+@keyframes hvRise{from{opacity:0;transform:translateY(18px)}}
+@keyframes hvPop{from{opacity:0;transform:scale(.9)}}
+@keyframes hvDraw{from{stroke-dashoffset:1}}
+@keyframes hvBlink{0%{opacity:0}12%{opacity:1}85%{opacity:1}100%{opacity:0}}
+@keyframes hvIn{from{opacity:0}}
+@keyframes hvDot{from{background:#B4BDC8;box-shadow:0 0 0 3px #EEF1F5}}
+@keyframes hvPulse{0%{stroke-dashoffset:.07;opacity:0}12%{opacity:1}88%{opacity:1}100%{stroke-dashoffset:-1;opacity:0}}
+html.js-anim .hero__copy > *{animation:hvRise .8s var(--ease) backwards}
+html.js-anim .hero__copy > :nth-child(1){animation-delay:.05s}
+html.js-anim .hero__copy > :nth-child(2){animation-delay:.13s}
+html.js-anim .hero__copy > :nth-child(3){animation-delay:.24s}
+html.js-anim .hero__copy > :nth-child(4){animation-delay:.34s}
+html.js-anim .mark svg path{stroke-dasharray:1;animation:hvDraw .75s var(--ease) .85s backwards}
+html.js-anim .hv{animation:hvRise .9s var(--ease) .2s backwards}
+html.js-anim .hv__node{animation:hvPop .5s var(--ease) calc(.55s + var(--i) * .07s) backwards}
+html.js-anim .hv__node i{animation:hvDot .45s ease calc(4.1s + var(--i) * .08s) backwards}
+html.js-anim .hv__mess path{animation:hvBlink 2s ease calc(.95s + var(--i) * .06s) both}
+html.js-anim .hv__s1{animation:hvBlink 1.9s ease .8s both}
+html.js-anim .hv__hub{animation:hvPop .6s var(--ease) 2.6s backwards}
+html.js-anim .hv__s2{animation:hvBlink 1.6s ease 2.65s both}
+html.js-anim .hv__link{animation:hvDraw .8s var(--ease) calc(2.85s + var(--i) * .06s) backwards}
+html.js-anim .hv__pulse{animation:hvPulse 1s ease-in-out calc(3.45s + var(--i) * .08s) both}
+html.js-anim .hv__s3{animation:hvIn .5s ease 4.2s backwards}
 
 /* industries: their own band under the hero, label + four full-bleed photos */
 .inds{position:relative;scroll-margin-top:calc(var(--head-h) + 10px)}
@@ -1214,6 +1285,11 @@ html{scroll-behavior:smooth}
 @media (min-width:3300px) and (min-aspect-ratio:2/1){:root{zoom:1.55;--vz:1.55}}
 @media (min-width:3700px) and (min-aspect-ratio:2/1){:root{zoom:1.7;--vz:1.7}}
 </style>
+<script>
+  /* same rule as the main script: animate only with IntersectionObserver and without reduced motion */
+  (function(){ var r = document.documentElement;
+    if ("IntersectionObserver" in window && !(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches)) r.classList.add("js-anim"); })();
+</script>
 </head>
 <body>
 
@@ -1335,13 +1411,28 @@ html{scroll-behavior:smooth}
   <div class="wrap hero__top">
     <div class="hero__copy">
       <p class="eyebrow eyebrow--plus">{{hero.eyebrow}}</p>
-      <h1>{{hero.headline_line1}}<br>{{hero.headline_line2}} <span class="mark">{{hero.headline_highlight}}<svg viewBox="0 0 320 20" preserveAspectRatio="none" aria-hidden="true"><path d="M4 13.5 C 66 4.5 154 2.5 222 5.5 C 262 7.2 292 10 316 15"/></svg></span>{{hero.headline_end}}</h1>
-    </div>
-    <div class="hero__aside">
+      <h1>{{hero.headline_line1}}<br>{{hero.headline_line2}} <span class="mark">{{hero.headline_highlight}}<svg viewBox="0 0 320 20" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M4 13.5 C 66 4.5 154 2.5 222 5.5 C 262 7.2 292 10 316 15"/></svg></span>{{hero.headline_end}}</h1>
       <p class="hero__sub">{{hero.subheading}}</p>
       <div class="hero__ctas">
         <a class="btn btn--primary" href="#contact">{{site.primary_button}} <span class="ar" aria-hidden="true">&#8594;</span></a>
         <a class="btn btn--ghost" href="#read">{{hero.secondary_button}}</a>
+      </div>
+    </div>
+    <div class="hero__viz hv" role="img" aria-label="Diagram: ERP, WMS, EHR, CRM, POS and portals stop being re-keyed by hand and connect through one QOL automation layer with AI agents, so they stay in sync.">
+      <div class="hv__bar" aria-hidden="true">
+        <span class="hv__k">How it works</span>
+        <span class="hv__state"><b class="hv__s1">Re-keyed by hand</b><b class="hv__s2">Connecting</b><b class="hv__s3">Synced automatically</b></span>
+      </div>
+      <div class="hv__stage" aria-hidden="true">
+        <svg class="hv__svg hv__svg--wide" viewBox="0 0 520 340" aria-hidden="true"><g class="hv__mess"><path style="--i:0" d="M72 62 C220 40 300 190 448 170"/><path style="--i:1" d="M72 170 C210 200 300 300 448 278"/><path style="--i:2" d="M72 278 C220 260 300 60 448 62"/><path style="--i:3" d="M72 62 C200 120 330 250 448 278"/><path style="--i:4" d="M72 170 C200 130 320 70 448 62"/></g><g><path class="hv__link" style="--i:0" pathLength="1" d="M72 62 C150 62 170 170 260 170"/><path class="hv__link" style="--i:1" pathLength="1" d="M72 170 L260 170"/><path class="hv__link" style="--i:2" pathLength="1" d="M72 278 C150 278 170 170 260 170"/><path class="hv__link" style="--i:3" pathLength="1" d="M448 62 C370 62 350 170 260 170"/><path class="hv__link" style="--i:4" pathLength="1" d="M448 170 L260 170"/><path class="hv__link" style="--i:5" pathLength="1" d="M448 278 C370 278 350 170 260 170"/></g><g><path class="hv__pulse" style="--i:0" pathLength="1" d="M72 62 C150 62 170 170 260 170"/><path class="hv__pulse" style="--i:1" pathLength="1" d="M72 170 L260 170"/><path class="hv__pulse" style="--i:2" pathLength="1" d="M72 278 C150 278 170 170 260 170"/><path class="hv__pulse" style="--i:3" pathLength="1" d="M448 62 C370 62 350 170 260 170"/><path class="hv__pulse" style="--i:4" pathLength="1" d="M448 170 L260 170"/><path class="hv__pulse" style="--i:5" pathLength="1" d="M448 278 C370 278 350 170 260 170"/></g></svg>
+        <svg class="hv__svg hv__svg--tall" viewBox="0 0 340 300" aria-hidden="true"><g class="hv__mess"><path style="--i:0" d="M60 40 C40 140 150 200 170 260"/><path style="--i:1" d="M170 40 C200 120 300 180 280 260"/><path style="--i:2" d="M280 40 C230 140 90 160 60 260"/><path style="--i:3" d="M60 40 C120 120 240 170 280 260"/><path style="--i:4" d="M170 40 C140 120 70 170 60 260"/></g><g><path class="hv__link" style="--i:0" pathLength="1" d="M60 40 C60 100 170 90 170 150"/><path class="hv__link" style="--i:1" pathLength="1" d="M170 40 L170 150"/><path class="hv__link" style="--i:2" pathLength="1" d="M280 40 C280 100 170 90 170 150"/><path class="hv__link" style="--i:3" pathLength="1" d="M60 260 C60 200 170 210 170 150"/><path class="hv__link" style="--i:4" pathLength="1" d="M170 260 L170 150"/><path class="hv__link" style="--i:5" pathLength="1" d="M280 260 C280 200 170 210 170 150"/></g><g><path class="hv__pulse" style="--i:0" pathLength="1" d="M60 40 C60 100 170 90 170 150"/><path class="hv__pulse" style="--i:1" pathLength="1" d="M170 40 L170 150"/><path class="hv__pulse" style="--i:2" pathLength="1" d="M280 40 C280 100 170 90 170 150"/><path class="hv__pulse" style="--i:3" pathLength="1" d="M60 260 C60 200 170 210 170 150"/><path class="hv__pulse" style="--i:4" pathLength="1" d="M170 260 L170 150"/><path class="hv__pulse" style="--i:5" pathLength="1" d="M280 260 C280 200 170 210 170 150"/></g></svg>
+        <span class="hv__hub"><b>QOL automation</b><small>+ AI agents</small></span>
+        <span class="hv__node" style="--i:0;--x:13.85%;--y:18.24%;--mx:17.65%;--my:13.33%"><i></i>ERP</span>
+        <span class="hv__node" style="--i:1;--x:13.85%;--y:50.00%;--mx:50.00%;--my:13.33%"><i></i>WMS</span>
+        <span class="hv__node" style="--i:2;--x:13.85%;--y:81.76%;--mx:82.35%;--my:13.33%"><i></i>EHR</span>
+        <span class="hv__node" style="--i:3;--x:86.15%;--y:18.24%;--mx:17.65%;--my:86.67%"><i></i>CRM</span>
+        <span class="hv__node" style="--i:4;--x:86.15%;--y:50.00%;--mx:50.00%;--my:86.67%"><i></i>POS</span>
+        <span class="hv__node" style="--i:5;--x:86.15%;--y:81.76%;--mx:82.35%;--my:86.67%"><i></i>Portals</span>
       </div>
     </div>
   </div>
