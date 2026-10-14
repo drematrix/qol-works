@@ -302,11 +302,13 @@ html.js-anim .sect.ink#read{transform:translateY(var(--riseY,0px));will-change:t
 .hero__for{font-family:var(--display);font-size:.8rem;color:var(--muted);max-width:46ch;line-height:1.55;
   padding-top:16px;border-top:1px solid var(--line)}
 
-/* ---------- hero: copy left, impact rail right, industries below ---------- */
-.hero{position:relative;overflow:hidden;padding-block:clamp(40px,5vw,74px) 0}
-.hero__top{position:relative;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);
-  gap:clamp(30px,4vw,62px);align-items:start;padding-bottom:clamp(30px,3.6vw,46px)}
-@media (max-width:1020px){.hero__top{grid-template-columns:minmax(0,1fr);gap:32px}}
+/* ---------- hero: headline left, one sentence + actions right; industries follow in their own band ---------- */
+.hero{position:relative;overflow:hidden;padding-block:clamp(48px,6vw,96px) 0}
+/* five elements: eyebrow + headline on the left, one sentence + two actions on the right, bottoms aligned */
+.hero__top{position:relative;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);
+  gap:clamp(30px,4.5vw,72px);align-items:end;padding-bottom:clamp(48px,5.6vw,84px)}
+@media (max-width:1020px){.hero__top{grid-template-columns:minmax(0,1fr);gap:24px}}
+.hero__aside{display:flex;flex-direction:column;gap:22px;padding-bottom:.35em}
 .hero__copy{display:flex;flex-direction:column;gap:22px;max-width:920px}
 .eyebrow--plus{color:var(--accent-mid)}
 .eyebrow--plus::before{background:var(--accent-mid)}
@@ -314,39 +316,16 @@ html.js-anim .sect.ink#read{transform:translateY(var(--riseY,0px));will-change:t
 .mark{position:relative;white-space:nowrap}
 .mark svg{position:absolute;left:0;width:100%;bottom:-.13em;height:.22em;overflow:visible}
 .mark svg path{fill:none;stroke:var(--hot);stroke-width:5.5;stroke-linecap:round;vector-effect:non-scaling-stroke}
-.hero__sub{font-size:clamp(1.08rem,calc(1.2vw / var(--vz)),1.4rem);max-width:60ch;color:var(--body)}
+.hero__sub{font-size:clamp(1.08rem,calc(1.2vw / var(--vz)),1.4rem);max-width:46ch;color:var(--body)}
 @media (max-width:560px){.hero h1{font-size:1.95rem;letter-spacing:-.03em}}
 @media (max-width:380px){.hero h1{font-size:1.75rem}}
 .hero__ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:4px}
 
-.hero__rail{display:flex;flex-direction:column;gap:14px;padding-left:clamp(20px,2.6vw,38px);
-  border-left:1px solid var(--line);align-self:stretch}
-@media (max-width:1020px){.hero__rail{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:26px}}
-.rail__k{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.rail__lead{font-family:var(--display);font-size:clamp(1.12rem,calc(1.5vw / var(--vz)),1.5rem);font-weight:600;line-height:1.3;
-  letter-spacing:-.018em;color:var(--ink);text-wrap:balance}
-.rail__rule{width:38px;height:3px;border-radius:3px;background:var(--hot);margin:2px 0 4px}
-.rail__list{display:flex;flex-direction:column;gap:13px}
-.rail__list li{position:relative;padding-left:22px;font-size:clamp(1rem,calc(1.05vw / var(--vz)),1.18rem);line-height:1.45;color:var(--body)}
-.rail__list li::before{content:"";position:absolute;left:0;top:.62em;width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
-.rail__list li:nth-child(even)::before{background:var(--hot);box-shadow:0 0 0 4px var(--hot-soft)}
-/* on desktop the rail stretches to the copy block: label + lead sit at the top, rule + outcomes share the CTA baseline */
-@media (min-width:1021px){.rail__rule{margin-top:auto}}
 
-/* industry tabs */
-.indtabs{display:flex;flex-wrap:wrap;align-items:center;gap:8px clamp(18px,3vw,44px);padding-bottom:18px}
-.hero .indtabs{justify-content:center;text-align:center}
-.hero .indtabs__row{justify-content:center}
-.indtabs__k{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.indtabs__row{display:flex;flex-wrap:wrap;gap:4px clamp(10px,2.4vw,34px)}
-.indtabs__row button{background:none;border:0;cursor:pointer;padding:6px 2px;position:relative;
-  font-family:var(--display);font-size:1.02rem;font-weight:500;color:var(--muted);
-  transition:color .25s ease}
-.indtabs__row button::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;border-radius:2px;
-  background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
-.indtabs__row button:hover{color:var(--ink)}
-.indtabs__row button[aria-selected="true"]{color:var(--ink);font-weight:600}
-.indtabs__row button[aria-selected="true"]::after{transform:scaleX(1)}
+/* industries: their own band under the hero, label + four full-bleed photos */
+.inds{position:relative;scroll-margin-top:calc(var(--head-h) + 10px)}
+.inds__head{padding-bottom:clamp(16px,1.8vw,24px)}
+.inds__k{font-size:.8125rem}
 
 /* full-bleed industry cards */
 .indcards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));width:100%}
@@ -359,10 +338,10 @@ html.js-anim .sect.ink#read{transform:translateY(var(--riseY,0px));will-change:t
 .indcard::after{content:"";position:absolute;inset:0;pointer-events:none;
   background:linear-gradient(to top,rgba(6,18,14,.58) 0%,rgba(6,18,14,.2) 32%,rgba(6,18,14,0) 58%)}
 .indcard:hover img{transform:scale(1.045)}
-.indcard.is-on::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
+.indcard:hover::before,.indcard:focus-visible::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
   box-shadow:inset 0 4px 0 0 var(--accent);
   background:linear-gradient(to top,rgba(11,87,224,.6) 0%,rgba(11,87,224,.22) 52%,rgba(11,87,224,.05) 82%)}
-.indcard.is-on img{filter:saturate(1.02) brightness(.96)}
+.indcard:hover img,.indcard:focus-visible img{filter:saturate(1.02) brightness(.96)}
 .indcard__icon{position:absolute;z-index:3;top:clamp(14px,1.6vw,22px);left:clamp(14px,1.6vw,22px);
   width:42px;height:42px;border-radius:11px;background:#fff;display:flex;align-items:center;justify-content:center;
   color:var(--forest);box-shadow:0 6px 18px -8px rgba(0,0,0,.5)}
@@ -383,24 +362,6 @@ html.js-anim .sect.ink#read{transform:translateY(var(--riseY,0px));will-change:t
   transition:background .25s ease,border-color .25s ease,transform .25s var(--ease)}
 .indcard:hover .indcard__go{background:#fff;color:var(--forest);border-color:#fff;transform:translateX(3px)}
 
-/* ---------- hero fits one screen on desktop: copy, tabs and photos all above the fold ---------- */
-@media (min-width:1021px) and (min-height:560px){
-  .hero{height:calc(100svh / var(--vz) - var(--head-h));min-height:540px;display:flex;flex-direction:column;
-    padding-top:clamp(22px,5vh,72px)}
-  .hero__top{flex:none;padding-bottom:clamp(16px,3.2vh,44px)}
-  .hero__copy{gap:clamp(12px,2.2vh,22px)}
-  .hero h1{font-size:clamp(2.1rem,min(calc(4.3vw / var(--vz)),calc(7.6vh / var(--vz))),6rem)}
-  .hero__sub{font-size:clamp(1rem,min(calc(1.2vw / var(--vz)),calc(2.1vh / var(--vz))),1.4rem)}
-  .hero__rail{gap:clamp(8px,1.6vh,14px)}
-  .hero .indtabs{flex:none;padding-bottom:clamp(10px,1.8vh,18px)}
-  .hero .indcards{flex:1;min-height:0}
-  .hero .indcard{min-height:0;height:100%}
-}
-/* short laptop screens: keep the cards clean when they are shallow */
-@media (min-width:1021px) and (max-height:760px){
-  .hero .indcard__icon,.hero .indcard__sys{display:none}
-  .hero .indcard__body p{font-size:.84rem}
-}
 
 
 /* ---------- what we do: four numbered cards with CSS interface vignettes ---------- */
@@ -1166,13 +1127,11 @@ html{scroll-behavior:smooth}
   #navpanel{max-height:calc(100dvh - var(--head-h) - 20px);overflow:auto;overscroll-behavior:contain}
 }
 
-/* hero: the four stacked cards carry the industry labels, so the tab row is redundant,
-   and the auto-rotating highlight wash reads as flicker on a stacked list */
+/* industries on phones: four stacked photo cards, no highlight wash on tap */
 @media (max-width:560px){
-  .hero .indtabs{display:none}
-  .hero .indcard{min-height:216px}
-  .indcard.is-on::before{display:none}
-  .indcard.is-on img{filter:saturate(.92) brightness(.86)}
+  .indcard{min-height:216px}
+  .indcard:hover::before{display:none}
+  .indcard:hover img{filter:saturate(.92) brightness(.86)}
 }
 
 /* our work: no carousel on phones — all six cases stack as compact cards, nothing behind clicks */
@@ -1377,35 +1336,24 @@ html{scroll-behavior:smooth}
     <div class="hero__copy">
       <p class="eyebrow eyebrow--plus">{{hero.eyebrow}}</p>
       <h1>{{hero.headline_line1}}<br>{{hero.headline_line2}} <span class="mark">{{hero.headline_highlight}}<svg viewBox="0 0 320 20" preserveAspectRatio="none" aria-hidden="true"><path d="M4 13.5 C 66 4.5 154 2.5 222 5.5 C 262 7.2 292 10 316 15"/></svg></span>{{hero.headline_end}}</h1>
+    </div>
+    <div class="hero__aside">
       <p class="hero__sub">{{hero.subheading}}</p>
       <div class="hero__ctas">
         <a class="btn btn--primary" href="#contact">{{site.primary_button}} <span class="ar" aria-hidden="true">&#8594;</span></a>
         <a class="btn btn--ghost" href="#read">{{hero.secondary_button}}</a>
       </div>
     </div>
-
-    <aside class="hero__rail">
-      <span class="rail__k">{{hero.impact_label}}</span>
-      <p class="rail__lead">{{hero.impact_heading}}</p>
-      <span class="rail__rule" aria-hidden="true"></span>
-      <ul class="rail__list">{{#each hero.impact_points}}
-        <li>{{.}}</li>{{/each}}
-      </ul>
-    </aside>
   </div>
+</section>
 
-  <div class="wrap wrap--wide indtabs">
-    <span class="indtabs__k">{{hero.industries_label}}</span>
-    <div class="indtabs__row" role="tablist" aria-label="Industries">
-        <button type="button" role="tab" data-ind="healthcare" aria-controls="card-healthcare" aria-selected="true">{{hero.industries.0.name}}</button>
-        <button type="button" role="tab" data-ind="warehousing" aria-controls="card-warehousing" aria-selected="false">{{hero.industries.1.name}}</button>
-        <button type="button" role="tab" data-ind="cyber" aria-controls="card-cyber" aria-selected="false">{{hero.industries.2.name}}</button>
-        <button type="button" role="tab" data-ind="b2b" aria-controls="card-b2b" aria-selected="false">{{hero.industries.3.name}}</button>
-    </div>
+<!-- ============================== INDUSTRIES ============================== -->
+<section class="inds" id="industries" aria-labelledby="inds-k">
+  <div class="wrap wrap--wide inds__head reveal">
+    <h2 class="eyebrow inds__k" id="inds-k">{{hero.industries_label}}</h2>
   </div>
-
   <div class="indcards" id="indcards">
-    <a class="indcard is-on" id="card-healthcare" data-ind="healthcare" href="#what">
+    <a class="indcard" id="card-healthcare" data-ind="healthcare" href="#what">
       <img src="assets/img/ind-healthcare.jpg" alt="{{attr hero.industries.0.image_alt}}" width="1200" height="961">
       <span class="indcard__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 6v12M6 12h12"/></svg></span>
       <div class="indcard__body"><h3>{{hero.industries.0.name}}</h3><div class="indcard__txt"><p>{{hero.industries.0.text}}</p></div></div>
@@ -2228,42 +2176,6 @@ html{scroll-behavior:smooth}
     window.addEventListener("load", function(){ setTimeout(revealVisible, 300); });
     window.addEventListener("resize", revealVisible, {passive:true});
   }
-
-  /* ---------- hero industries: tabs and cards move together ---------- */
-  (function(){
-    var cards = Array.prototype.slice.call(document.querySelectorAll(".indcard"));
-    var tabs  = Array.prototype.slice.call(document.querySelectorAll(".indtabs__row button"));
-    if (!cards.length || !tabs.length) return;
-    var at = 0, t = null, held = false;
-
-    function show(i){
-      at = (i + cards.length) % cards.length;
-      cards.forEach(function(c,n){ c.classList.toggle("is-on", n === at); });
-      tabs.forEach(function(b,n){ b.setAttribute("aria-selected", n === at ? "true" : "false"); });
-    }
-    function play(){ if (!reduce && !t) t = setInterval(function(){ if (!held) show(at + 1); }, 4200); }
-    function stop(){ if (t){ clearInterval(t); t = null; } }
-
-    tabs.forEach(function(b,n){
-      b.addEventListener("click", function(){ show(n); stop(); play(); });
-      b.addEventListener("keydown", function(e){
-        var d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
-        if (!d) return;
-        e.preventDefault();
-        var k = (n + d + tabs.length) % tabs.length;
-        show(k); tabs[k].focus(); stop(); play();
-      });
-    });
-    cards.forEach(function(c,n){
-      c.addEventListener("mouseenter", function(){ held = true; show(n); });
-      c.addEventListener("mouseleave", function(){ held = false; });
-    });
-    document.addEventListener("visibilitychange", function(){ document.hidden ? stop() : play(); });
-    if ("IntersectionObserver" in window){
-      new IntersectionObserver(function(es){ es[0].isIntersecting ? play() : stop(); }, {threshold:0.2})
-        .observe(document.getElementById("indcards"));
-    } else { play(); }
-  })();
 
   /* ---------- selected work: one case at a time, every client named below ---------- */
   (function(){
