@@ -2576,14 +2576,17 @@ html{scroll-behavior:smooth}
       function step(t){
         if (t0 === null) t0 = t;
         var k = Math.min(1, (t - t0) / DUR), e = 1 - Math.pow(1 - k, 3);
-        nums.forEach(function(b){ b.textContent = Math.round(e * +b.getAttribute("data-n")) + (b.getAttribute("data-sfx") || ""); });
+        nums.forEach(function(b){ var n = +b.getAttribute("data-n");
+          b.textContent = Math.round(n * (.6 + .4 * e)) + (b.getAttribute("data-sfx") || ""); });
         if (k < 1) requestAnimationFrame(step);
       }
       requestAnimationFrame(step);
     }
     var r = band.getBoundingClientRect();
     if (r.top < innerHeight && r.bottom > 0) return;          /* already on screen: leave the real figures */
-    nums.forEach(function(b){ b.textContent = "0" + (b.getAttribute("data-sfx") || ""); });
+    if (!("IntersectionObserver" in window)) return;
+    /* the real figures stay in the page until the band arrives, so no-JS, crawlers and
+       full-page captures read "10+", never "0+" */
     new IntersectionObserver(function(es, o){
       if (es[0].isIntersecting){ setTimeout(run, 250); o.disconnect(); }
     }, {threshold:0.5}).observe(band);
